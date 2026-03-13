@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arcade Chord Control — User Manual</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
   :root {
-    --bg:        #07080f;
-    --bg2:       #0d0f1c;
-    --bg3:       #13162a;
-    --cyan:      #00e8d8;
-    --cyan2:     #00b8aa;
+    --bg:        #080c18;
+    --bg2:       #0d1224;
+    --bg3:       #111827;
+    --cyan:      #2ae8c4;
+    --cyan2:     #22c4a8;
     --magenta:   #ff2d8a;
     --magenta2:  #c01060;
     --amber:     #ffaa00;
     --green:     #39ff6e;
     --text:      #dde2f0;
     --muted:     #6b7299;
-    --border:    #1f2540;
+    --border:    #1e2a3a;
     --page-w:    210mm;
     --page-h:    297mm;
   }
@@ -29,7 +29,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
     font-size: 10pt;
     line-height: 1.65;
     -webkit-print-color-adjust: exact;
@@ -39,7 +39,6 @@
   /* ── PAGE SHELL ── */
   .page {
     width: var(--page-w);
-    min-height: var(--page-h);
     margin: 0 auto 2mm;
     padding: 16mm 16mm 14mm;
     background: var(--bg);
@@ -86,7 +85,7 @@
     border-top: 1px solid #1f2540;
     font-size: 7pt;
     color: #6b7299;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     z-index: 1000;
@@ -196,6 +195,7 @@
   .cover-top { position: relative; z-index: 1; }
 
   .brand-tag {
+    font-family: 'Syne', sans-serif;
     font-size: 8pt;
     font-weight: 600;
     letter-spacing: 0.25em;
@@ -205,6 +205,7 @@
   }
 
   .cover-title {
+    font-family: 'Syne', sans-serif;
     font-size: 44pt;
     font-weight: 700;
     line-height: 1.05;
@@ -294,7 +295,7 @@
   .pad-axis-label {
     position: absolute;
     font-size: 7pt;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     color: var(--muted);
     letter-spacing: 0.08em;
   }
@@ -305,7 +306,7 @@
   .cover-version {
     font-size: 8pt;
     color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
   }
   .cover-version strong { color: var(--cyan); }
 
@@ -333,11 +334,12 @@
     color: var(--muted);
     border-top: 1px solid var(--border);
     padding-top: 3mm;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
   }
 
   /* ── TYPOGRAPHY ── */
   h1 {
+    font-family: 'Syne', sans-serif;
     font-size: 22pt;
     font-weight: 700;
     color: #fff;
@@ -348,6 +350,7 @@
   h1 .accent { color: var(--cyan); }
 
   h2 {
+    font-family: 'Syne', sans-serif;
     font-size: 12pt;
     font-weight: 700;
     color: var(--cyan);
@@ -379,7 +382,7 @@
   strong { color: #fff; font-weight: 600; }
 
   code, .mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 8.5pt;
     background: var(--bg3);
     border: 1px solid var(--border);
@@ -403,7 +406,7 @@
     margin: 0 2mm 1.5mm;
   }
   .toc-page {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 8pt;
     color: var(--muted);
     min-width: 6mm;
@@ -412,7 +415,7 @@
   .toc-num {
     min-width: 7mm;
     color: var(--cyan);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-size: 8pt;
   }
 
@@ -453,7 +456,7 @@
     vertical-align: top;
   }
   tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-  td:first-child { color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 8.5pt; }
+  td:first-child { color: var(--cyan); font-family: 'DM Mono', monospace; font-size: 8.5pt; }
 
   /* ── COLUMNS ── */
   .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
@@ -490,7 +493,7 @@
     font-size: 8.5pt;
   }
   .gp-cell .btn {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     font-weight: 700;
     color: var(--magenta);
     font-size: 9pt;
@@ -533,7 +536,7 @@
     border-radius: 2px;
     padding: 0.5mm 2mm;
     font-size: 8pt;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'DM Mono', monospace;
     color: var(--cyan);
     margin: 0.5mm;
   }
@@ -770,7 +773,7 @@
 
   <!-- ASCII-style labeled diagram using SVG -->
   <div class="ui-diagram">
-    <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;">
+    <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" style="font-family:'DM Mono',monospace;">
       <!-- background -->
       <rect width="520" height="320" fill="#0d0f1c"/>
 
