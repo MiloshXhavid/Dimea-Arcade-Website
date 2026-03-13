@@ -1857,17 +1857,71 @@ let activeOscs=[];
 function initAudio(){
   if(audioCtx) return;
   audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+
+  // Master filter — warm, dark baseline
   filterNode=audioCtx.createBiquadFilter();
   filterNode.type='lowpass';
-  filterNode.frequency.value=2200;
-  filterNode.Q.value=1.0;
-  masterGain=audioCtx.createGain();
-  masterGain.gain.value=0.28;
+  filterNode.frequency.value=800;
+  filterNode.Q.value=0.7;
+
+  // Compressor + master gain
   const comp=audioCtx.createDynamicsCompressor();
   comp.threshold.value=-16; comp.ratio.value=4;
+  masterGain=audioCtx.createGain();
+  masterGain.gain.value=0.22;
+
+  // ── DELAY ENGINE — 200ms, filtered feedback, 3 decaying repeats ──
+  const delaySend=audioCtx.createGain();
+  delaySend.gain.value=0.30;
+  const delayNode=audioCtx.createDelay(0.5);
+  delayNode.delayTime.value=0.20;
+  const delayFilt=audioCtx.createBiquadFilter();
+  delayFilt.type='lowpass';
+  delayFilt.frequency.value=1100; // darker repeats
+  const delayFeedback=audioCtx.createGain();
+  delayFeedback.gain.value=0.46; // 3 repeats: 46% / 21% / 10%
+  const delayReturn=audioCtx.createGain();
+  delayReturn.gain.value=0.38;
+  // Delay routing
+  masterGain.connect(delaySend);
+  delaySend.connect(delayNode);
+  delayNode.connect(delayFilt);
+  delayFilt.connect(delayFeedback);
+  delayFeedback.connect(delayNode); // feedback loop
+  delayFilt.connect(delayReturn);
+  delayReturn.connect(audioCtx.destination);
+
+  // ── PLATE REVERB — 4 comb filters + allpass diffuser ──
+  const reverbSend=audioCtx.createGain();
+  reverbSend.gain.value=0.40;
+  const combMix=audioCtx.createGain();
+  combMix.gain.value=0.25; // blend 4 combs
+  // Comb filter bank — plate-like short delay times
+  [{t:0.0297,fb:0.76},{t:0.0371,fb:0.74},{t:0.0411,fb:0.72},{t:0.0538,fb:0.70}].forEach(({t,fb})=>{
+    const d=audioCtx.createDelay(0.1);
+    d.delayTime.value=t;
+    const f=audioCtx.createGain();
+    f.gain.value=fb;
+    const lp=audioCtx.createBiquadFilter();
+    lp.type='lowpass'; lp.frequency.value=3800; // warm the reverb tail
+    reverbSend.connect(d);
+    d.connect(lp); lp.connect(f); f.connect(d); // comb feedback
+    d.connect(combMix);
+  });
+  // Allpass diffuser — smooths the density
+  const ap=audioCtx.createBiquadFilter();
+  ap.type='allpass'; ap.frequency.value=800; ap.Q.value=1.0;
+  const reverbReturn=audioCtx.createGain();
+  reverbReturn.gain.value=0.72;
+  combMix.connect(ap);
+  ap.connect(reverbReturn);
+  reverbReturn.connect(audioCtx.destination);
+
+  // Main signal chain + effect sends (tapped post-compressor)
   filterNode.connect(comp);
   comp.connect(masterGain);
-  masterGain.connect(audioCtx.destination);
+  masterGain.connect(audioCtx.destination); // dry
+  masterGain.connect(reverbSend);           // reverb send
 }
 
 function stopAll(fade=0.3){
@@ -1877,8 +1931,8 @@ function stopAll(fade=0.3){
   activeOscs=[];
 }
 
-// Waveforms that get randomly picked on each press
-const WAVEFORMS = ['triangle','sine','sawtooth','square'];
+// Waveforms — soft only (Synthex/OB-8 reference: sine + triangle)
+const WAVEFORMS = ['triangle','sine'];
 let currentWaveform = 'triangle';
 
 function pickRandomWaveform(){
@@ -1919,7 +1973,7 @@ function quantizeToCMinor(raw){
 }
 
 // Centre MIDI for each voice
-const VOICE_CENTER_MIDI = [36, 52, 67, 71]; // C2, E3, G4, B4 → Cmaj7
+const VOICE_CENTER_MIDI = [36, 52, 67, 59]; // C2, E3, G4, B3 → Cmaj7 (7th down an octave for depth)
 
 // Full pad range = 24 semitones (1 octave each direction from centre = 2 octaves total)
 function getFreqsFromXY(px, py){
@@ -2028,22 +2082,33 @@ function getChordName(px, py){
   return computeChordName(midiNotes);
 }
 
-function playChordNow(px, py, brightness){
+function playChordNow(px, py, brightness, isRetune=false){
   if(!audioCtx) return;
 
-  // Filter: centre=2000Hz warm, edge=9000Hz airy
-  const filterFreq = 2000 * Math.pow(4.5, brightness);
-  filterNode.frequency.setTargetAtTime(filterFreq, audioCtx.currentTime, 0.08);
-  const q = 0.8 + brightness * brightness * 3.7;
-  filterNode.Q.setTargetAtTime(q, audioCtx.currentTime, 0.1);
-
-  stopAll(0.15);
+  // Filter — Y modifier: moving up opens filter slightly (more expressive)
+  const yOpen = py < 0.5 ? 1 + (0.5 - py) * 0.7 : 1.0;
+  const filterFreq = 800 * Math.pow(3.125, brightness) * yOpen;
+  filterNode.frequency.setTargetAtTime(filterFreq, audioCtx.currentTime, 0.12);
+  const q = 0.6 + brightness * brightness * 1.2;
+  filterNode.Q.setTargetAtTime(q, audioCtx.currentTime, 0.15);
 
   const freqs = getFreqsFromXY(px, py);
-  const lowestFreq = Math.min(...freqs);
   const now = audioCtx.currentTime;
 
-  // SUB OCTAVE — only when Y is above centre (positive/upper half)
+  // RETUNE PATH — smooth glide with no clicks during drag
+  if(isRetune && activeOscs.length > 0){
+    activeOscs.forEach(o=>{
+      if(o.voiceIdx !== undefined && o.voiceIdx < freqs.length)
+        o.osc.frequency.setTargetAtTime(freqs[o.voiceIdx], now, 0.04);
+    });
+    return;
+  }
+
+  // FRESH START — new oscillators on initial click
+  stopAll(0.25);
+  const lowestFreq = Math.min(...freqs);
+
+  // SUB OCTAVE — upper half only
   if(py < 0.5){
     const subOsc = audioCtx.createOscillator();
     subOsc.type = 'sine';
@@ -2056,21 +2121,18 @@ function playChordNow(px, py, brightness){
     subGain.gain.setTargetAtTime(0.42, now, 0.07);
     subOsc.connect(subFilt); subFilt.connect(subGain); subGain.connect(filterNode);
     subOsc.start(now);
-    activeOscs.push({osc:subOsc, gain:subGain});
+    activeOscs.push({osc:subOsc, gain:subGain}); // no voiceIdx — not retunable
   }
 
   // VOICES — two oscs per voice, OB-X8 vintage: ±1.25 cents, slow drift
-  // Root alternates sine/square each press for warmth variety; never shown in display
-  const rootWaveforms = ['sine', 'square'];
+  const rootWaveforms = ['sine', 'triangle'];
   const rootWave = rootWaveforms[Math.floor(Math.random() * 2)];
-
-  const gainScale = (currentWaveform==='square'||currentWaveform==='sawtooth') ? 0.38 : 0.55;
+  const gainScale = 0.52;
 
   freqs.forEach((f, i) => {
     const waveform = i === 0 ? rootWave : currentWaveform;
-    // Root sine/square is naturally louder — scale it back slightly
     const voiceGain = i === 0
-      ? (rootWave === 'sine' ? 0.48 : 0.32) / freqs.length
+      ? (rootWave === 'sine' ? 0.48 : 0.44) / freqs.length
       : gainScale / freqs.length;
 
     const baseDetune = (Math.random()-0.5) * 2.5;
@@ -2091,14 +2153,28 @@ function playChordNow(px, py, brightness){
 
     const g = audioCtx.createGain();
     g.gain.setValueAtTime(0, now);
-    g.gain.setTargetAtTime(voiceGain, now + i * 0.016, 0.042);
+    g.gain.linearRampToValueAtTime(voiceGain, now + 0.030 + i * 0.018);
 
     oscA.connect(g); oscB.connect(g);
     g.connect(filterNode);
     oscA.start(now); oscB.start(now);
 
-    activeOscs.push({osc:oscA, gain:g});
-    activeOscs.push({osc:oscB, gain:g});
+    activeOscs.push({osc:oscA, gain:g, voiceIdx:i});
+    activeOscs.push({osc:oscB, gain:g, voiceIdx:i});
+
+    // Root voice: blend a low-level square wave for presence and body
+    if(i === 0){
+      const sqOsc = audioCtx.createOscillator();
+      sqOsc.type = 'square';
+      sqOsc.frequency.setValueAtTime(f, now);
+      const sqGain = audioCtx.createGain();
+      sqGain.gain.setValueAtTime(0, now);
+      sqGain.gain.linearRampToValueAtTime(0.10 / freqs.length, now + 0.030);
+      sqOsc.connect(sqGain);
+      sqGain.connect(filterNode);
+      sqOsc.start(now);
+      activeOscs.push({osc:sqOsc, gain:sqGain, voiceIdx:0}); // retunable with root
+    }
   });
 }
 
@@ -2158,7 +2234,7 @@ function updateDot(px,py){
   return normDist;
 }
 
-function triggerChord(px,py,brightness,forcePlay=false){
+function triggerChord(px,py,brightness,forcePlay=false,isRetune=false){
   const xyChanged = Math.abs(px-lastPx)>0.004||Math.abs(py-lastPy)>0.004;
   if(!xyChanged&&!forcePlay) return;
 
@@ -2176,7 +2252,7 @@ function triggerChord(px,py,brightness,forcePlay=false){
   fcBright.textContent=Math.round(brightness*100)+'%';
   if(voicingLbl) voicingLbl.innerHTML=`<span class="vname">${name}</span> · C Major · Y=Root+3rd  X=5th+7th`;
 
-  playChordNow(px,py,brightness);
+  playChordNow(px,py,brightness,isRetune);
 }
 
 function startSustain(){
@@ -2228,11 +2304,11 @@ function handleMove(e){
   e.preventDefault();
   const{px,py}=getRelPos(e,xyPad);
   const brightness=updateDot(px,py);
-  triggerChord(px,py,brightness);
+  triggerChord(px,py,brightness,false,true); // retune existing oscs — no clicks
 }
 
 function smoothRelease(isLong){
-  const fadeDur=isLong?1.5:0.4;
+  const fadeDur=isLong?2.0:1.0; // 1s normal release, 2s sustained release
   const now=audioCtx.currentTime;
   if(isLong){
     filterNode.frequency.setTargetAtTime(800,now,fadeDur*0.5);
