@@ -618,6 +618,25 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 .game-overlay-close:hover { border-color:var(--magenta); color:var(--magenta); }
 .game-overlay-iframe { flex:1; border:none; width:100%; display:block; }
 
+/* ── HW FOUNDER INTRO ──────────────────────────────────────────── */
+.hw-founder-intro {
+  max-width: 700px;
+  margin-bottom: 56px;
+}
+.hw-founder-voice {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.hw-founder-expand {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
 </style>
 </head>
 <body>
@@ -633,6 +652,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   </a>
   <ul class="nav-links">
     <li><a href="#plugins" id="navPlugins">Plugin</a></li>
+    <li><a href="#pageAbout" id="navAbout">About</a></li>
     <li><a href="#pageHardware" id="navHardware">Hardware</a></li>
     <li><a href="#pageImpressions" id="navImpressions">Impressions</a></li>
     <li><a href="#pageShop">Shop</a></li>
@@ -771,14 +791,20 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
       <p class="hw-subtitle">A PS5-sized chord synthesizer. Two joysticks, pressure-sensitive trigger pads, back triggers, internal looper, standalone synth engine — no screen, no menu diving, no computer. <strong>Bringing harmony to the people.</strong></p>
     </div>
 
+    <!-- ── FOUNDER INTRO ─────────────────────────────────────────────── -->
+    <div class="hw-founder-intro">
+      <p class="hw-founder-voice">This didn't start as a product. It started as a problem.</p>
+      <p class="hw-founder-expand">A table full of Eurorack modules, an XY joystick, and a trumpet. It worked — beautifully — but it was never something anyone else could just pick up and play.</p>
+    </div>
+
     <!-- ── ORIGIN STRIP ────────────────────────────────────────── -->
     <div class="hw-origin">
       <div class="hw-origin-col hw-origin-col--img">
-        <img src="/mnt/user-data/uploads/WhatsApp_Image_2026-01-17_at_00_04_34.jpeg"
+        <img src="assets/hw-origin-performance.jpg"
              alt="Performing with modular setup at HSLU" class="hw-origin-img"/>
         <div class="hw-origin-img-label">Masterproject · HSLU Musik Luzern · Jan 2026</div>
         <div style="margin-top:16px;position:relative;">
-          <img src="/mnt/user-data/uploads/Dimeola_Schalltplan.jpg"
+          <img src="assets/hw-origin-schematic.jpg"
                alt="DIMEOLA circuit schematic" class="hw-origin-img"
                style="aspect-ratio:4/3;object-position:center center;filter:contrast(1.08) brightness(0.97);border:1px solid rgba(42,232,196,0.12);"/>
           <div class="hw-origin-img-label">Circuit Schematic · Daisy Seed · CD74HC4067 · MPR121</div>
@@ -4000,6 +4026,7 @@ buildChromaStrip();
   <ul class="nav-overlay-links">
     <li><a href="#pageHome">Home</a></li>
     <li><a href="#plugins">Plugin</a></li>
+    <li><a href="#pageAbout">About</a></li>
     <li><a href="#pageHardware">Hardware</a></li>
     <li><a href="#pageImpressions">Impressions</a></li>
     <li><a href="#pageShop">Shop</a></li>
