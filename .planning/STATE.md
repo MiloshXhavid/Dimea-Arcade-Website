@@ -1,9 +1,9 @@
 ---
+gsd_state_version: 1.0
 milestone: v1.0
-phase: "02"
-plan: "02-02"
-status: complete
-last_updated: 2026-03-13
+milestone_name: milestone
+status: unknown
+last_updated: "2026-03-13T15:03:23.875Z"
 ---
 
 ## Position
