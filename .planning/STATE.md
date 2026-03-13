@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-13T19:44:22.472Z"
+last_updated: "2026-03-13T20:55:00.000Z"
 ---
 
 ## Position
 
-Phase 03 in progress. Plan 03-01 complete (privacy.html + terms.html).
+Phase 03 complete. Plans 03-01 and 03-02 done. All three legal pages live and linked from footer.
 
 ## Decisions
 
@@ -27,6 +27,9 @@ Phase 03 in progress. Plan 03-01 complete (privacy.html + terms.html).
 - Legal pages use light theme (white bg, dark text) — distinct from main site dark navy brand (03-01)
 - Identical CSS block per file — consistent with flat HTML project, no shared stylesheet (03-01)
 - Plausible Analytics added as placeholder section in privacy.html — pending activation (03-01)
+- Cloudflare-obfuscated Contact href replaced with plain mailto:contact@dimea.audio — Vercel static hosting has no CDN email protection (03-02)
+- Hardware deposit non-refundable notice uses &lt;p&gt;&lt;strong&gt; for prominence — no additional CSS needed (03-02)
+- Dimea Arcade cancellation clause included in refund.html — full deposit refund within 30 days if DIMEOLA project cancelled (03-02)
 
 ## Commits (Phase 01)
 
@@ -48,7 +51,9 @@ Phase 03 in progress. Plan 03-01 complete (privacy.html + terms.html).
 
 - `225cbf3` feat(03-01): create privacy.html — Privacy Policy + Impressum
 - `07e1e3e` feat(03-01): create terms.html — Terms of Service
+- `7cd990c` feat(03-02): create refund.html — Refund Policy
+- `a70ee3c` feat(03-02): wire footer legal links in index.html
 
 ## Next
 
-Phase 03 plan 03-02: refund.html + footer link wiring in index.html
+Phase 04 TBD — payment processing enablement prerequisites met (all legal pages live).
