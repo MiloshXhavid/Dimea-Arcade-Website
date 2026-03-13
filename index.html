@@ -539,11 +539,47 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 @keyframes blobDrift{0%,100%{transform:translate(0,0);}50%{transform:translate(-20px,20px);}}
 @keyframes scrollAnim{0%{top:-50%;}100%{top:150%;}}
 
+/* ── MOBILE NAV TOGGLE ── */
+.nav-menu-toggle{display:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);background:none;border:1px solid rgba(42,232,196,.3);padding:8px 16px;cursor:pointer;transition:all .2s;flex-shrink:0;}
+.nav-menu-toggle:hover{background:rgba(42,232,196,.07);border-color:var(--teal);}
+
+/* ── NAV OVERLAY ── */
+.nav-overlay{display:none;position:fixed;inset:0;z-index:800;background:rgba(5,8,16,0.97);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);flex-direction:column;align-items:center;justify-content:center;gap:0;}
+.nav-overlay.open{display:flex;}
+.nav-overlay-links{list-style:none;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0;}
+.nav-overlay-links a{font-family:'Syne',sans-serif;font-size:clamp(28px,8vw,48px);font-weight:800;letter-spacing:.04em;color:var(--text);text-decoration:none;padding:12px 24px;display:block;transition:color .2s;}
+.nav-overlay-links a:hover{color:var(--teal);}
+.nav-overlay-cta{margin-top:40px;}
+
+/* ── TOUCH CURSOR FIX ── */
+@media(pointer:coarse){
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  a,button,[role="button"]{cursor:pointer;}
+  .xy-pad{cursor:crosshair;}
+}
+
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;} .hero-right{display:none;} .hero-left{padding:120px 28px 80px;}
-  nav{padding:18px 24px;} .nav-links{display:none;}
+  /* Nav */
+  nav{padding:18px 24px;}
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .nav-menu-toggle{display:block;}
+
+  /* Hero — stack vertically, show joystick */
+  .hero{grid-template-columns:1fr;}
+  .hero-left{padding:110px 28px 40px;}
+  .hero-right{display:flex;justify-content:center;padding:20px 28px 60px;overflow:visible;}
+  .xy-world{width:300px;height:300px;}
+  .chord-badge{font-size:12px;}
+  .float-card{display:none;} /* decorative float cards hidden on mobile — too cramped */
+  .scroll-hint{display:none;}
+
+  /* Plugin */
   .plugin-body{grid-template-columns:1fr;} .plugin-section{padding:80px 28px;}
   .plugin-header{flex-direction:column;align-items:flex-start;} .plugin-price-block{align-items:flex-start;}
+
+  /* Impressions */
   .impressions-page{padding:100px 24px 80px;} .imp-grid{columns:1;}
 }
 @media(min-width:901px) and (max-width:1100px){ .imp-grid{columns:2;} }
@@ -602,6 +638,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
     <li><a href="#pageApp">App</a></li>
   </ul>
   <button class="nav-cta" id="exploreFreeBtn">Explore Free</button>
+  <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Open menu">[ MENU ]</button>
 </nav>
 
 <!-- ==================== HOME PAGE ==================== -->
@@ -3960,6 +3997,52 @@ buildChromaStrip();
 
 })();
 
+</script>
+
+<!-- ── MOBILE NAV OVERLAY ── -->
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-label="Navigation">
+  <ul class="nav-overlay-links">
+    <li><a href="#pageHome">Home</a></li>
+    <li><a href="#plugins">Plugin</a></li>
+    <li><a href="#pageHardware">Hardware</a></li>
+    <li><a href="#pageImpressions">Impressions</a></li>
+    <li><a href="#pageShop">Shop</a></li>
+    <li><a href="#pageApp">App</a></li>
+  </ul>
+  <div class="nav-overlay-cta">
+    <button class="nav-cta" id="exploreFreeOverlay">Explore Free</button>
+  </div>
+</div>
+
+<script>
+// ── MOBILE NAV TOGGLE ──
+const navToggle = document.getElementById('navMenuToggle');
+const navOverlay = document.getElementById('navOverlay');
+const exploreFreeOverlay = document.getElementById('exploreFreeOverlay');
+
+function closeNav(){
+  navOverlay.classList.remove('open');
+  navToggle.textContent='[ MENU ]';
+  navToggle.setAttribute('aria-label','Open menu');
+}
+
+navToggle.addEventListener('click',()=>{
+  const open = navOverlay.classList.toggle('open');
+  navToggle.textContent = open ? '[ CLOSE ]' : '[ MENU ]';
+  navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+});
+
+navOverlay.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', closeNav);
+});
+
+if(exploreFreeOverlay){
+  exploreFreeOverlay.addEventListener('click',()=>{
+    closeNav();
+    if(typeof bootGameEmbed==='function') bootGameEmbed();
+    document.getElementById('gameOverlay').classList.add('open');
+  });
+}
 </script>
 </body>
 </html>
