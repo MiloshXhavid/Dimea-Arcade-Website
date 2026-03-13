@@ -850,7 +850,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <div class="plugin-title-block">
           <div class="section-label">Plugin</div>
           <h2 class="plugin-title">Arcade <span>Chord Control</span></h2>
-          <p class="plugin-subtitle">A MIDI effect plugin that maps scale-aware chord voicings to your gamepad joystick. Perform harmonic progressions the way you play games.</p>
+          <p class="plugin-subtitle">A spatial harmony controller for performers and producers. Every position on the XY pad is a chord — move to explore. Four voices, full per-voice MIDI routing, LFO modulation engine, looper, and arpeggiator built in.</p>
         </div>
         <div class="plugin-price-block">
           <div class="price-tag"><span>CHF </span>79</div>
@@ -869,11 +869,14 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text-faint);">Demo video coming soon — rough demo available on request</div>
         </div>
         <div class="plugin-features">
-          <div class="feature-item"><div class="feature-icon">🕹</div><div class="feature-text"><div class="feature-name">Gamepad Joystick Control</div><div class="feature-desc">Connect any PS4/PS5 or compatible gamepad. The right stick becomes your XY performance pad — drag through filter space and chord voicings in real time.</div><span class="feature-tag">PS4 / PS5 Ready</span></div></div>
-          <div class="feature-item"><div class="feature-icon">🎵</div><div class="feature-text"><div class="feature-name">4-Voice Chord Architecture</div><div class="feature-desc">Root, 3rd, 5th, and Tension voices — each with independent interval, octave, and trigger settings. Distance from center controls voicing spread.</div></div></div>
-
-          <div class="feature-item"><div class="feature-icon">🔁</div><div class="feature-text"><div class="feature-name">Built-in Looper</div><div class="feature-desc">Record chord sequences and joystick movements. Play, reset, delete — with DAW sync and touch-triggered recording.</div><span class="feature-tag">DAW Sync</span></div></div>
-          <div class="feature-item"><div class="feature-icon">🎛</div><div class="feature-text"><div class="feature-name">Scale Presets + Arpeggiator</div><div class="feature-desc">Select Major, Minor, modes and more. Transpose on the fly. Add the arpeggiator with Rate, Order, and Gate% for rhythmic chord patterns.</div></div></div>
+          <div class="feature-item"><div class="feature-icon">🎯</div><div class="feature-text"><div class="feature-name">XY Spatial Harmony Pad</div><div class="feature-desc">The core performance surface. Y axis walks scale degrees — root and third change pitch. X axis sweeps chord colour — fifth and tension shift interval quality. Every position is harmonically valid. Nothing wrong is possible.</div></div></div>
+          <div class="feature-item"><div class="feature-icon">🎵</div><div class="feature-text"><div class="feature-name">4-Voice MIDI Architecture</div><div class="feature-desc">Root, Third, Fifth, and Tension — four independent voices, each on its own MIDI channel. Per-voice interval offsets, octave settings, and trigger sources. Route to separate instruments or blend into one.</div></div></div>
+          <div class="feature-item"><div class="feature-icon">🎼</div><div class="feature-text"><div class="feature-name">Scale & Key System</div><div class="feature-desc">30+ scale presets — Major, Minor, all modes, pentatonics, and more. Full custom scale builder for non-standard tunings. Transpose on the fly. Smart chord display names every voicing in real time.</div><span class="feature-tag">Smart Chord Display</span></div></div>
+          <div class="feature-item"><div class="feature-icon">🔁</div><div class="feature-text"><div class="feature-name">4-Lane Chord Looper</div><div class="feature-desc">Four independent record lanes: REC captures full MIDI, GATES records rhythm only (joystick steers pitch during playback), JOY captures continuous XY movement as a replayable curve. DAW-synced or free-running.</div><span class="feature-tag">DAW Sync</span></div></div>
+          <div class="feature-item"><div class="feature-icon">🥁</div><div class="feature-text"><div class="feature-name">8-Step Arpeggiator</div><div class="feature-desc">Pattern grid with ON, TIE, and OFF states per step. Adjustable rate (synced or free), order (Up / Down / Random / Chord), and gate percentage. Stack with the looper for layered rhythmic movement.</div></div></div>
+          <div class="feature-item"><div class="feature-icon">🌊</div><div class="feature-text"><div class="feature-name">LFO Modulation Engine</div><div class="feature-desc">Multiple waveform shapes with DAW sync or free rate. Routes to any CC destination — filter cutoff, resonance, voice parameters, and custom targets. Sister cross-modulation between LFO pairs. REC mode captures joystick movement as a custom LFO shape.</div><span class="feature-tag">8 CC Destinations</span></div></div>
+          <div class="feature-item"><div class="feature-icon">👆</div><div class="feature-text"><div class="feature-name">TouchPlates & Random Trigger</div><div class="feature-desc">Per-voice trigger sources: PAD fires on click, JOY re-triggers continuously on position change, RND fires at random intervals via the built-in random trigger engine. Mix sources per voice for polyrhythmic textures.</div></div></div>
+          <div class="feature-item"><div class="feature-icon">🕹</div><div class="feature-text"><div class="feature-name">Gamepad Control</div><div class="feature-desc">Connect any PS4/PS5 or compatible gamepad. Left stick for pitch, right stick for filter/mod. Shoulder buttons control the looper. Face buttons change scale. Full button mapping — perform without touching the mouse.</div><span class="feature-tag">PS4 / PS5 Ready</span></div></div>
         </div>
       </div>
       <div class="compat-row">
@@ -1473,16 +1476,16 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <div class="hw-step-dot"></div>
           <div class="hw-step-content">
             <div class="hw-step-label">Done</div>
-            <div class="hw-step-title">PD Prototype Patch — Dimeola_Plugmade_2_0</div>
-            <div class="hw-step-desc">Full 4-voice Pure Data patch with scale engine, ADSR, looper, and MIDI I/O targeting Daisy Seed. Hardware schematic drawn.</div>
+            <div class="hw-step-title">Software Blueprint — Dimeola_Plugmade_2_0</div>
+            <div class="hw-step-desc">Full 4-voice Pure Data patch proving the concept in software — scale engine, ADSR, looper, MIDI I/O targeting Daisy Seed. Concept schematics drawn.</div>
           </div>
         </div>
         <div class="hw-step hw-step--active">
           <div class="hw-step-dot"></div>
           <div class="hw-step-content">
             <div class="hw-step-label">Now</div>
-            <div class="hw-step-title">Electronics Breadboard + PCB Design</div>
-            <div class="hw-step-desc">Building the first functional prototype — Daisy Seed, CD74HC4067 mux, MPR121 touch, FSR pads, dual joystick encoders, 3-way switches.</div>
+            <div class="hw-step-title">Concept Design — Schematics & Component Spec</div>
+            <div class="hw-step-desc">Hardware concept fully documented in drawn schematics. Components defined: Daisy Seed, CD74HC4067 mux, MPR121 touch, FSR pads, dual joystick encoders, 3-way switches.</div>
           </div>
         </div>
         <div class="hw-step">
@@ -1490,7 +1493,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <div class="hw-step-content">
             <div class="hw-step-label">Next</div>
             <div class="hw-step-title">hvcc Compile + Gamepad Enclosure</div>
-            <div class="hw-step-desc">Compile PD patch to Daisy firmware via Heavy compiler. Design and prototype the gamepad-form enclosure with back triggers.</div>
+            <div class="hw-step-desc">Compile PD patch to Daisy firmware via Heavy compiler. Design the gamepad-form enclosure with back triggers.</div>
           </div>
         </div>
         <div class="hw-step">
