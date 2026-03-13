@@ -586,7 +586,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
 /* ── PLUGIN PHOTO FRAME ── */
 .plugin-ui-frame--photo { border:1px solid var(--border-mid); background:#000; overflow:hidden; }
-.plugin-ui-frame--photo::before { content:'DIMEA ARCADE CHORD CONTROL'; display:block; font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.25em; text-transform:uppercase; color:var(--text-faint); padding:8px 12px; background:rgba(0,0,0,.7); border-bottom:1px solid var(--border); }
+.plugin-ui-frame-bar { display:flex; justify-content:space-between; align-items:center; font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.25em; text-transform:uppercase; color:var(--text-faint); padding:8px 12px; background:rgba(0,0,0,.4); border-bottom:1px solid var(--border); }
+.ui-close { width:10px; height:10px; border-radius:50%; background:rgba(255,80,80,.5); display:inline-block; }
 .plugin-photo-wrap { position:relative; overflow:hidden; cursor:none; }
 .plugin-photo { width:100%; display:block; transition:transform 0.4s ease; }
 .plugin-photo-wrap:hover .plugin-photo { transform:scale(1.02); }
@@ -734,17 +735,12 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
       </div>
       <div class="plugin-body">
         <div class="plugin-ui-frame plugin-ui-frame--photo">
-          <div class="plugin-photo-wrap">
-            <img
-              src="/mnt/user-data/uploads/DIMEA_PLUGIN_UI.png"
-              alt="DIMEA Arcade Chord Control — Plugin Interface"
-              class="plugin-photo"
-            />
-            <div class="plugin-photo-hover">
-              <span class="plugin-photo-hover-label">DIMEA Arcade Chord Control</span>
-              <span class="plugin-photo-hover-sub">Full-featured DAW plugin · VST3 · AU · AAX</span>
-            </div>
-          </div>
+          <div class="plugin-ui-frame-bar">DIMEA CHORD JOYSTICK MK2<div class="ui-close"></div></div>
+          <img src="assets/arcade-chord-control.png" alt="Arcade Chord Control plugin screenshot" style="width:100%;display:block;">
+        </div>
+        <div class="plugin-video-placeholder" style="margin-top:32px;padding:32px 24px;border:1px solid var(--border-mid);background:rgba(42,232,196,0.03);text-align:center;">
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--teal-dim);margin-bottom:12px;">Demo Video</div>
+          <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text-faint);">Demo video coming soon — rough demo available on request</div>
         </div>
         <div class="plugin-features">
           <div class="feature-item"><div class="feature-icon">🕹</div><div class="feature-text"><div class="feature-name">Gamepad Joystick Control</div><div class="feature-desc">Connect any PS4/PS5 or compatible gamepad. The right stick becomes your XY performance pad — drag through filter space and chord voicings in real time.</div><span class="feature-tag">PS4 / PS5 Ready</span></div></div>
