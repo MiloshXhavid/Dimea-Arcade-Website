@@ -54,6 +54,13 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
 /* PAGE SYSTEM */
 .page { display:block; }
+/* ── SECTION DIVIDERS ─── */
+.section-divider{display:flex;align-items:center;gap:20px;padding:0 52px;height:44px;background:var(--navy-deep);border-top:2px solid var(--teal);}
+.section-divider-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;color:var(--teal);flex-shrink:0;}
+.section-divider-name{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--text-faint);flex-shrink:0;}
+.section-divider-line{flex:1;height:1px;background:var(--border-mid);}
+@media(max-width:900px){.section-divider{padding:0 28px;}}
+
 
 /* ===================== HERO ===================== */
 .hero { position:relative; width:100%; min-height:100vh; display:grid; grid-template-columns:1fr 1fr; overflow:hidden; z-index:2; }
@@ -192,12 +199,12 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 .ui-slider-name{font-family:'DM Mono',monospace;font-size:6px;color:var(--text-faint);width:28px;}
 .ui-slider-track{flex:1;height:2px;background:var(--border-mid);border-radius:1px;}
 .ui-slider-fill{height:100%;background:var(--teal);border-radius:1px;}
-.plugin-features{display:flex;flex-direction:column;gap:0;}
-.feature-item{display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start;padding:24px 0;border-bottom:1px solid var(--border);}
-.feature-item:first-child{border-top:1px solid var(--border);}
-.feature-icon{width:48px;height:48px;background:rgba(42,232,196,.06);border:1px solid var(--border-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;}
-.feature-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;}
-.feature-desc{font-size:13px;font-weight:300;color:var(--text-dim);line-height:1.6;}
+.plugin-features{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:72px;grid-column:1/-1;margin-top:8px;}
+.feature-item{background:var(--navy-mid);padding:32px;display:flex;gap:20px;align-items:flex-start;transition:background .2s;}
+.feature-item:hover{background:rgba(42,232,196,0.02);}
+.feature-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.feature-name{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.feature-desc{font-size:13px;line-height:1.7;color:var(--text-dim);}
 .feature-tag{display:inline-block;margin-top:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--magenta);background:rgba(232,58,110,.08);border:1px solid rgba(232,58,110,.2);padding:2px 8px;}
 .compat-row{margin-top:60px;padding-top:40px;border-top:1px solid var(--border);display:flex;align-items:center;gap:32px;flex-wrap:wrap;}
 .compat-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-faint);flex-shrink:0;}
@@ -312,6 +319,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   .shop-grid{grid-template-columns:1fr;}
   .app-inner{grid-template-columns:1fr;}
   .app-right{position:static;}
+  .plugin-features{grid-template-columns:1fr;}
 }
 
 /* ── COMING SOON SECTIONS (Shop / App) ─── */
@@ -424,11 +432,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 .hw-back-svg{width:100%;display:block;}
 .hw-back-note{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.12em;color:rgba(255,255,255,0.18);padding:6px 20px 10px;}
 
-/* Controller illustration */
-.hw-controller-wrap{position:relative;background:var(--navy-mid);border:1px solid var(--border-mid);margin-bottom:72px;overflow:hidden;}
-.hw-controller-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--text-faint);padding:14px 20px;border-bottom:1px solid var(--border);}
-.hw-controller-svg{width:100%;max-width:900px;display:block;margin:0 auto;padding:20px 0;}
-.hw-controller-note{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.15em;color:rgba(255,255,255,0.15);padding:10px 20px;border-top:1px solid var(--border);text-align:right;}
 
 /* Feature grid */
 /* ── HARDWARE VISION ── */
@@ -867,7 +870,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <div class="plugin-ui-frame-bar">DIMEA CHORD JOYSTICK MK2<div class="ui-close"></div></div>
           <img src="assets/arcade-chord-control.png" alt="Arcade Chord Control plugin screenshot" style="width:100%;display:block;">
         </div>
-        <div class="plugin-video-placeholder" style="margin-top:32px;padding:32px 24px;border:1px solid var(--border-mid);background:rgba(42,232,196,0.03);text-align:center;">
+        <div class="plugin-video-placeholder" style="padding:32px 24px;border:1px solid var(--border-mid);background:rgba(42,232,196,0.03);text-align:center;align-self:start;">
           <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--teal-dim);margin-bottom:12px;">Demo Video</div>
           <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text-faint);">Demo video coming soon — rough demo available on request</div>
         </div>
@@ -890,6 +893,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   </section>
 </div>
 
+<div class="section-divider"><span class="section-divider-num">02</span><span class="section-divider-name">About</span><div class="section-divider-line"></div></div>
 <!-- ==================== ABOUT PAGE ==================== -->
 <div class="page" id="pageAbout">
 <section class="about-section">
@@ -930,6 +934,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 </section>
 </div>
 
+<div class="section-divider"><span class="section-divider-num">03</span><span class="section-divider-name">Hardware</span><div class="section-divider-line"></div></div>
 <!-- ==================== HARDWARE PAGE ==================== -->
 <div class="page" id="pageHardware">
 <section class="hw-section" id="hardware">
@@ -997,331 +1002,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
       <span class="hw-status-tag">Daisy Seed · Pure Data · ~CHF 499</span>
     </div>
 
-    <!-- ── CONTROLLER ILLUSTRATION ────────────────────────────── -->
-    <!-- ── CONTROLLER ILLUSTRATION ────────────────────────────── -->
-    <div class="hw-controller-wrap">
-      <div class="hw-controller-label">DIMEOLA MK1 — Concept Layout · Top View</div>
-
-      <!--
-        LAYOUT LOGIC:
-        • Left joystick (PITCH) sits lower-left — natural left thumb resting position
-        • Right joystick (FILTER/MOD) sits upper-right — mirrors PS5 ergonomics
-        • Illuminated 12-note chromatic ring sits at the exact visual & physical centre
-          between the two sticks — one octave, touch-sensitive, lights indicate active scale
-        • 4 touchplates in a horizontal row below the scale ring — thumb-accessible
-        • Looper buttons tucked between the touchplates and bottom edge
-        • Back triggers (L1/L2/R1/R2) + 3-way mode switches shown in back-edge strip below
-        • OCT and DEGREE switches flank the scale ring left/right
-        • Material: anodised aluminium body, CNC-machined, brushed steel accents
-      -->
-      <svg class="hw-controller-svg" viewBox="0 0 1000 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="gA"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="gB"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="gC"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <radialGradient id="body" cx="50%" cy="38%" r="58%">
-            <stop offset="0%" stop-color="#1a1f35"/>
-            <stop offset="100%" stop-color="#07090f"/>
-          </radialGradient>
-          <radialGradient id="gripL" cx="40%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#141828"/>
-            <stop offset="100%" stop-color="#060709"/>
-          </radialGradient>
-          <radialGradient id="gripR" cx="60%" cy="50%" r="60%">
-            <stop offset="0%" stop-color="#141828"/>
-            <stop offset="100%" stop-color="#060709"/>
-          </radialGradient>
-          <radialGradient id="glL" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(42,232,196,0.18)"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-          <radialGradient id="glR" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(232,58,110,0.16)"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-          <radialGradient id="ovalGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(42,232,196,0.12)"/>
-            <stop offset="100%" stop-color="transparent"/>
-          </radialGradient>
-          <pattern id="dotTex" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
-            <circle cx="3" cy="3" r="0.6" fill="rgba(255,255,255,0.04)"/>
-          </pattern>
-          <linearGradient id="rgbLine" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(232,58,110,0.9)"/>
-            <stop offset="40%" stop-color="rgba(180,60,220,0.85)"/>
-            <stop offset="100%" stop-color="rgba(42,232,196,0.9)"/>
-          </linearGradient>
-          <linearGradient id="rgbLineL" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(232,58,110,0.8)"/>
-            <stop offset="100%" stop-color="rgba(180,60,220,0.6)"/>
-          </linearGradient>
-          <linearGradient id="rgbLineR" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="rgba(180,60,220,0.6)"/>
-            <stop offset="100%" stop-color="rgba(42,232,196,0.8)"/>
-          </linearGradient>
-        </defs>
-
-        <!-- BODY — ROG-inspired squared shoulders, dot texture -->
-        <path d="M 270 52 L 730 52 Q 820 52 880 82 L 920 106 Q 955 132 955 190 Q 958 270 928 360 Q 906 420 860 452 Q 814 480 754 464 L 700 448 Q 630 432 500 432 Q 370 432 300 448 L 246 464 Q 186 480 140 452 Q 94 420 72 360 Q 42 270 45 190 Q 45 132 80 106 L 120 82 Q 180 52 270 52 Z"
-              fill="url(#body)" stroke="rgba(42,232,196,0.15)" stroke-width="1.5"/>
-        <path d="M 270 52 L 730 52 Q 820 52 880 82 L 920 106 Q 955 132 955 190 Q 958 270 928 360 Q 906 420 860 452 Q 814 480 754 464 L 700 448 Q 630 432 500 432 Q 370 432 300 448 L 246 464 Q 186 480 140 452 Q 94 420 72 360 Q 42 270 45 190 Q 45 132 80 106 L 120 82 Q 180 52 270 52 Z"
-              fill="url(#dotTex)"/>
-
-        <!-- Left grip -->
-        <path d="M 72 298 Q 44 344 38 406 Q 34 458 66 490 Q 98 518 140 506 Q 176 494 190 460 Q 206 422 198 380 Q 190 336 168 298 Z"
-              fill="url(#gripL)" stroke="rgba(42,232,196,0.08)" stroke-width="1.2"/>
-        <path d="M 72 298 Q 44 344 38 406 Q 34 458 66 490 Q 98 518 140 506 Q 176 494 190 460 Q 206 422 198 380 Q 190 336 168 298 Z" fill="url(#dotTex)" opacity="0.7"/>
-        <!-- Right grip -->
-        <path d="M 928 298 Q 956 344 962 406 Q 966 458 934 490 Q 902 518 860 506 Q 824 494 810 460 Q 794 422 802 380 Q 810 336 832 298 Z"
-              fill="url(#gripR)" stroke="rgba(232,58,110,0.08)" stroke-width="1.2"/>
-        <path d="M 928 298 Q 956 344 962 406 Q 966 458 934 490 Q 902 518 860 506 Q 824 494 810 460 Q 794 422 802 380 Q 810 336 832 298 Z" fill="url(#dotTex)" opacity="0.7"/>
-
-        <!-- RGB accent line — ROG signature -->
-        <path d="M 38 406 Q 36 450 66 490 Q 98 518 140 506 Q 162 498 178 480" stroke="url(#rgbLineL)" stroke-width="3" fill="none" filter="url(#gA)" opacity="0.8"/>
-        <path d="M 962 406 Q 964 450 934 490 Q 902 518 860 506 Q 838 498 822 480" stroke="url(#rgbLineR)" stroke-width="3" fill="none" filter="url(#gA)" opacity="0.8"/>
-        <path d="M 178 480 Q 340 510 500 512 Q 660 510 822 480" stroke="url(#rgbLine)" stroke-width="3" fill="none" filter="url(#gA)" opacity="0.75"/>
-
-        <!-- Top edge highlight -->
-        <line x1="270" y1="52" x2="730" y2="52" stroke="rgba(255,255,255,0.09)" stroke-width="2.5"/>
-
-        <!-- USB-C top -->
-        <rect x="472" y="44" width="56" height="12" rx="3" fill="rgba(20,24,40,1)" stroke="rgba(42,232,196,0.3)" stroke-width="1"/>
-        <rect x="476" y="47" width="48" height="6" rx="1.5" fill="rgba(42,232,196,0.06)" stroke="rgba(42,232,196,0.18)" stroke-width="0.8"/>
-        <text x="500" y="54" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(42,232,196,0.45)">USB-C</text>
-
-        <!-- LEFT JOYSTICK — PITCH -->
-        <circle cx="200" cy="310" r="72" fill="url(#glL)" filter="url(#gC)"/>
-        <circle cx="200" cy="310" r="56" fill="rgba(6,8,16,0.97)" stroke="rgba(42,232,196,0.12)" stroke-width="2"/>
-        <circle cx="200" cy="310" r="42" fill="rgba(4,6,12,0.99)" stroke="rgba(42,232,196,0.35)" stroke-width="1.5"/>
-        <circle cx="200" cy="310" r="48" fill="none" stroke="rgba(42,232,196,0.06)" stroke-width="1" stroke-dasharray="3 4"/>
-        <line x1="200" y1="278" x2="200" y2="342" stroke="rgba(42,232,196,0.14)" stroke-width="1"/>
-        <line x1="168" y1="310" x2="232" y2="310" stroke="rgba(42,232,196,0.14)" stroke-width="1"/>
-        <circle cx="210" cy="300" r="16" fill="rgba(8,12,22,1)" stroke="rgba(42,232,196,0.55)" stroke-width="1.8"/>
-        <circle cx="210" cy="300" r="9" fill="rgba(42,232,196,0.88)" filter="url(#gA)"/>
-        <circle cx="210" cy="300" r="13" fill="none" stroke="rgba(42,232,196,0.15)" stroke-width="1"/>
-        <text x="200" y="376" text-anchor="middle" font-family="monospace" font-size="8.5" fill="rgba(42,232,196,0.65)" letter-spacing="2.5">PITCH</text>
-        <text x="200" y="388" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.2)">Y = root · 3rd  /  X = 5th · ten</text>
-
-        <!-- RIGHT JOYSTICK — FILTER -->
-        <circle cx="800" cy="222" r="72" fill="url(#glR)" filter="url(#gC)"/>
-        <circle cx="800" cy="222" r="56" fill="rgba(6,8,16,0.97)" stroke="rgba(232,58,110,0.12)" stroke-width="2"/>
-        <circle cx="800" cy="222" r="42" fill="rgba(4,6,12,0.99)" stroke="rgba(232,58,110,0.32)" stroke-width="1.5"/>
-        <circle cx="800" cy="222" r="48" fill="none" stroke="rgba(232,58,110,0.06)" stroke-width="1" stroke-dasharray="3 4"/>
-        <line x1="800" y1="190" x2="800" y2="254" stroke="rgba(232,58,110,0.14)" stroke-width="1"/>
-        <line x1="768" y1="222" x2="832" y2="222" stroke="rgba(232,58,110,0.14)" stroke-width="1"/>
-        <circle cx="790" cy="232" r="16" fill="rgba(8,12,22,1)" stroke="rgba(232,58,110,0.5)" stroke-width="1.8"/>
-        <circle cx="790" cy="232" r="9" fill="rgba(232,58,110,0.85)" filter="url(#gA)"/>
-        <circle cx="790" cy="232" r="13" fill="none" stroke="rgba(232,58,110,0.15)" stroke-width="1"/>
-        <text x="800" y="290" text-anchor="middle" font-family="monospace" font-size="8.5" fill="rgba(232,58,110,0.65)" letter-spacing="2.5">FILTER</text>
-        <text x="800" y="302" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.2)">Y = cutoff  /  X = resonance</text>
-
-        <!-- OVAL QUANTIZER — O+C inspired, centre of device -->
-        <ellipse cx="500" cy="256" rx="190" ry="148" fill="url(#ovalGlow)" filter="url(#gC)"/>
-        <ellipse cx="500" cy="256" rx="182" ry="141" fill="rgba(8,11,20,0.96)" stroke="rgba(42,232,196,0.22)" stroke-width="1.8"/>
-        <ellipse cx="500" cy="256" rx="172" ry="131" fill="none" stroke="rgba(42,232,196,0.07)" stroke-width="1"/>
-        <ellipse cx="500" cy="256" rx="182" ry="141" fill="url(#dotTex)" opacity="0.5"/>
-
-        <!-- 12 scale knobs around ellipse perimeter — C major shown active -->
-        <!-- C  0° top — ACTIVE -->
-        <circle cx="500" cy="115" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.6)" stroke-width="1.5"/>
-        <circle cx="500" cy="112" r="3.5" fill="rgba(42,232,196,0.9)" filter="url(#gA)"/>
-        <circle cx="500" cy="115" r="11" fill="none" stroke="rgba(42,232,196,0.12)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="500" y="138" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.95)" font-weight="bold">C</text>
-
-        <!-- C# 30° — INACTIVE -->
-        <circle cx="577" cy="137" r="11" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.2)" stroke-width="1"/>
-        <circle cx="577" cy="134" r="2.5" fill="rgba(42,232,196,0.22)"/>
-        <circle cx="577" cy="137" r="8.5" fill="none" stroke="rgba(42,232,196,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="577" y="156" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(42,232,196,0.28)">C♯</text>
-
-        <!-- D  60° — ACTIVE -->
-        <circle cx="634" cy="197" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.6)" stroke-width="1.5"/>
-        <circle cx="634" cy="194" r="3.5" fill="rgba(42,232,196,0.9)" filter="url(#gA)"/>
-        <circle cx="634" cy="197" r="11" fill="none" stroke="rgba(42,232,196,0.12)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="634" y="220" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.95)" font-weight="bold">D</text>
-
-        <!-- Eb 90° — INACTIVE -->
-        <circle cx="656" cy="256" r="11" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.2)" stroke-width="1"/>
-        <circle cx="656" cy="253" r="2.5" fill="rgba(42,232,196,0.22)"/>
-        <circle cx="656" cy="256" r="8.5" fill="none" stroke="rgba(42,232,196,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="678" y="260" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(42,232,196,0.28)">E♭</text>
-
-        <!-- E  120° — ACTIVE -->
-        <circle cx="634" cy="315" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.6)" stroke-width="1.5"/>
-        <circle cx="634" cy="312" r="3.5" fill="rgba(42,232,196,0.9)" filter="url(#gA)"/>
-        <circle cx="634" cy="315" r="11" fill="none" stroke="rgba(42,232,196,0.12)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="634" y="338" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.95)" font-weight="bold">E</text>
-
-        <!-- F  150° — ACTIVE -->
-        <circle cx="577" cy="375" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.5)" stroke-width="1.5"/>
-        <circle cx="577" cy="372" r="3.5" fill="rgba(42,232,196,0.78)" filter="url(#gA)"/>
-        <circle cx="577" cy="375" r="11" fill="none" stroke="rgba(42,232,196,0.1)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="577" y="397" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.85)" font-weight="bold">F</text>
-
-        <!-- F# 180° bottom — INACTIVE -->
-        <circle cx="500" cy="397" r="11" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.2)" stroke-width="1"/>
-        <circle cx="500" cy="394" r="2.5" fill="rgba(42,232,196,0.22)"/>
-        <circle cx="500" cy="397" r="8.5" fill="none" stroke="rgba(42,232,196,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="500" y="414" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(42,232,196,0.28)">F♯</text>
-
-        <!-- G  210° — ACTIVE -->
-        <circle cx="423" cy="375" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.6)" stroke-width="1.5"/>
-        <circle cx="423" cy="372" r="3.5" fill="rgba(42,232,196,0.9)" filter="url(#gA)"/>
-        <circle cx="423" cy="375" r="11" fill="none" stroke="rgba(42,232,196,0.12)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="423" y="397" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.95)" font-weight="bold">G</text>
-
-        <!-- Ab 240° — INACTIVE -->
-        <circle cx="344" cy="315" r="11" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.2)" stroke-width="1"/>
-        <circle cx="344" cy="312" r="2.5" fill="rgba(42,232,196,0.22)"/>
-        <circle cx="344" cy="315" r="8.5" fill="none" stroke="rgba(42,232,196,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="322" y="319" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(42,232,196,0.28)">A♭</text>
-
-        <!-- A  270° — ACTIVE -->
-        <circle cx="366" cy="197" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.5)" stroke-width="1.5"/>
-        <circle cx="366" cy="194" r="3.5" fill="rgba(42,232,196,0.78)" filter="url(#gA)"/>
-        <circle cx="366" cy="197" r="11" fill="none" stroke="rgba(42,232,196,0.1)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="366" y="220" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.85)" font-weight="bold">A</text>
-
-        <!-- Bb 300° — INACTIVE -->
-        <circle cx="423" cy="137" r="11" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.2)" stroke-width="1"/>
-        <circle cx="423" cy="134" r="2.5" fill="rgba(42,232,196,0.22)"/>
-        <circle cx="423" cy="137" r="8.5" fill="none" stroke="rgba(42,232,196,0.06)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="423" y="156" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(42,232,196,0.28)">B♭</text>
-
-        <!-- B  330° — ACTIVE -->
-        <circle cx="344" cy="197" r="14" fill="rgba(6,9,18,0.98)" stroke="rgba(42,232,196,0.6)" stroke-width="1.5"/>
-        <circle cx="344" cy="194" r="3.5" fill="rgba(42,232,196,0.9)" filter="url(#gA)"/>
-        <circle cx="344" cy="197" r="11" fill="none" stroke="rgba(42,232,196,0.12)" stroke-width="1" stroke-dasharray="2 3"/>
-        <text x="344" y="220" text-anchor="middle" font-family="monospace" font-size="7.5" fill="rgba(42,232,196,0.95)" font-weight="bold">B</text>
-
-        <!-- Centre OLED display -->
-        <rect x="444" y="228" width="112" height="56" rx="4" fill="rgba(3,4,8,0.98)" stroke="rgba(42,232,196,0.35)" stroke-width="1.3"/>
-        <rect x="445" y="229" width="110" height="54" rx="3" fill="rgba(42,232,196,0.025)"/>
-        <text x="500" y="248" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(42,232,196,0.35)" letter-spacing="1.5">SCALE</text>
-        <text x="500" y="264" text-anchor="middle" font-family="monospace" font-size="14" fill="rgba(42,232,196,0.95)" font-weight="bold" letter-spacing="1">Cmaj7</text>
-        <text x="500" y="277" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(255,255,255,0.2)" letter-spacing="0.5">C MAJOR · ROOT C2</text>
-
-        <!-- Oval ring annotation -->
-        <text x="500" y="99" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(42,232,196,0.28)" letter-spacing="3">QUANTIZER RING</text>
-        <text x="500" y="109" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.12)">12 touch-knobs · active scale glows · tap to toggle</text>
-
-        <!-- OCT & DEGREE flanking oval -->
-        <text x="290" y="248" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.28)">OCT</text>
-        <rect x="262" y="254" width="56" height="16" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <rect x="262" y="254" width="28" height="16" rx="3" fill="rgba(42,232,196,0.2)"/>
-        <text x="276" y="265" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(42,232,196,0.75)">−</text>
-        <text x="304" y="265" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.3)">+</text>
-
-        <text x="710" y="248" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.28)">DEGREE</text>
-        <rect x="682" y="254" width="56" height="16" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <rect x="710" y="254" width="28" height="16" rx="2" fill="rgba(232,58,110,0.2)"/>
-        <text x="696" y="265" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.3)">−</text>
-        <text x="724" y="265" text-anchor="middle" font-family="monospace" font-size="8" fill="rgba(232,58,110,0.7)">+</text>
-
-        <!-- 4 TOUCHPLATES below oval -->
-        <text x="500" y="428" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,255,255,0.18)" letter-spacing="1.5">VOICE TRIGGERS — pressure sensitive</text>
-        <rect x="332" y="436" width="72" height="22" rx="4" fill="rgba(42,232,196,0.16)" stroke="rgba(42,232,196,0.6)" stroke-width="1.5"/>
-        <text x="368" y="451" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(42,232,196,0.95)" font-weight="bold">R</text>
-        <rect x="412" y="436" width="72" height="22" rx="4" fill="rgba(42,232,196,0.06)" stroke="rgba(42,232,196,0.3)" stroke-width="1"/>
-        <text x="448" y="451" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(42,232,196,0.65)" font-weight="bold">3</text>
-        <rect x="492" y="436" width="72" height="22" rx="4" fill="rgba(42,232,196,0.06)" stroke="rgba(42,232,196,0.3)" stroke-width="1"/>
-        <text x="528" y="451" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(42,232,196,0.65)" font-weight="bold">5</text>
-        <rect x="572" y="436" width="72" height="22" rx="4" fill="rgba(232,58,110,0.1)" stroke="rgba(232,58,110,0.45)" stroke-width="1"/>
-        <text x="608" y="451" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(232,58,110,0.85)" font-weight="bold">T</text>
-        <text x="368" y="464" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">root</text>
-        <text x="448" y="464" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">third</text>
-        <text x="528" y="464" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">fifth</text>
-        <text x="608" y="464" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">tension</text>
-
-        <!-- LOOPER -->
-        <text x="500" y="483" text-anchor="middle" font-family="monospace" font-size="6.5" fill="rgba(255,180,60,0.45)" letter-spacing="2.5">LOOPER</text>
-        <circle cx="460" cy="500" r="12" fill="rgba(42,232,196,0.07)" stroke="rgba(42,232,196,0.38)" stroke-width="1.2"/>
-        <text x="460" y="504" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(42,232,196,0.7)">&#9654;</text>
-        <circle cx="485" cy="500" r="12" fill="rgba(232,58,110,0.07)" stroke="rgba(232,58,110,0.38)" stroke-width="1.2"/>
-        <text x="485" y="504" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(232,58,110,0.7)">&#9210;</text>
-        <circle cx="510" cy="500" r="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <text x="510" y="504" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.3)">&#8617;</text>
-        <circle cx="535" cy="500" r="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-        <text x="535" y="504" text-anchor="middle" font-family="monospace" font-size="10" fill="rgba(255,255,255,0.3)">&#9632;</text>
-        <text x="500" y="520" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.1)">pitch · gate · mod — independently loopable</text>
-
-        <!-- I/O labels -->
-        <text x="92" y="240" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.18)" transform="rotate(-90,92,240)">MIDI IN · MIDI OUT · CLK</text>
-        <text x="908" y="240" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.18)" transform="rotate(90,908,240)">AUDIO OUT · USB-C · BAT</text>
-
-        <!-- Watermark -->
-        <text x="500" y="547" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(42,232,196,0.06)" letter-spacing="6">DIMEOLA MK1 · CONCEPT · NOT FINAL</text>
-      </svg>
-
-
-      <!-- ── BACK EDGE VIEW — triggers + 3-way switches ── -->
-      <div class="hw-back-strip">
-        <div class="hw-back-label">Back Edge — Trigger + Mode Switch Layout</div>
-        <svg class="hw-back-svg" viewBox="0 0 1000 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-          <!-- body back edge profile -->
-          <path d="M 140 92 Q 220 68 360 58 L 640 58 Q 780 68 860 92 Q 886 102 890 112 L 110 112 Z"
-                fill="rgba(14,18,32,0.98)" stroke="rgba(42,232,196,0.14)" stroke-width="1.2"/>
-          <!-- left grip back -->
-          <path d="M 110 112 Q 88 100 84 80 Q 80 58 106 48 Q 132 40 156 50 Q 178 58 180 78 Q 182 96 168 112 Z"
-                fill="rgba(14,18,32,0.95)" stroke="rgba(42,232,196,0.08)" stroke-width="1"/>
-          <!-- right grip back -->
-          <path d="M 890 112 Q 912 100 916 80 Q 920 58 894 48 Q 868 40 844 50 Q 822 58 820 78 Q 818 96 832 112 Z"
-                fill="rgba(14,18,32,0.95)" stroke="rgba(42,232,196,0.08)" stroke-width="1"/>
-
-          <!-- L2 — analog trigger, left outer — the primary back trigger -->
-          <rect x="100" y="40" width="84" height="28" rx="8" fill="rgba(42,232,196,0.12)" stroke="rgba(42,232,196,0.42)" stroke-width="1.3"/>
-          <text x="142" y="56" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(42,232,196,0.85)" font-weight="bold">L2</text>
-          <text x="142" y="67" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.2)">analog trigger</text>
-
-          <!-- L1 — bumper, left inner -->
-          <rect x="192" y="46" width="72" height="22" rx="6" fill="rgba(42,232,196,0.05)" stroke="rgba(42,232,196,0.22)" stroke-width="1"/>
-          <text x="228" y="61" text-anchor="middle" font-family="monospace" font-size="8.5" fill="rgba(42,232,196,0.5)">L1</text>
-          <text x="228" y="70" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">bumper</text>
-
-          <!-- Centre — 4× 3-way trigger mode switches -->
-          <text x="500" y="38" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,180,60,0.55)" letter-spacing="2">TRIGGER MODE — per voice</text>
-
-          <!-- Switch 1 — set to PAD -->
-          <rect x="352" y="46" width="52" height="18" rx="4" fill="rgba(255,180,60,0.07)" stroke="rgba(255,180,60,0.32)" stroke-width="1"/>
-          <rect x="352" y="46" width="20" height="18" rx="4" fill="rgba(255,180,60,0.38)"/>
-          <text x="378" y="58" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,180,60,0.55)">PAD</text>
-          <text x="378" y="72" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,180,60,0.28)">voice 1</text>
-
-          <!-- Switch 2 — set to JOY -->
-          <rect x="410" y="46" width="52" height="18" rx="4" fill="rgba(255,180,60,0.07)" stroke="rgba(255,180,60,0.32)" stroke-width="1"/>
-          <rect x="426" y="46" width="20" height="18" rx="2" fill="rgba(255,180,60,0.38)"/>
-          <text x="436" y="58" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,180,60,0.55)">JOY</text>
-          <text x="436" y="72" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,180,60,0.28)">voice 2</text>
-
-          <!-- Switch 3 — set to JOY -->
-          <rect x="468" y="46" width="52" height="18" rx="4" fill="rgba(255,180,60,0.07)" stroke="rgba(255,180,60,0.32)" stroke-width="1"/>
-          <rect x="484" y="46" width="20" height="18" rx="2" fill="rgba(255,180,60,0.38)"/>
-          <text x="494" y="58" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,180,60,0.55)">JOY</text>
-          <text x="494" y="72" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,180,60,0.28)">voice 3</text>
-
-          <!-- Switch 4 — set to RND -->
-          <rect x="526" y="46" width="52" height="18" rx="4" fill="rgba(255,180,60,0.07)" stroke="rgba(255,180,60,0.32)" stroke-width="1"/>
-          <rect x="558" y="46" width="20" height="18" rx="2" fill="rgba(255,180,60,0.38)"/>
-          <text x="552" y="58" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(255,180,60,0.55)">RND</text>
-          <text x="552" y="72" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,180,60,0.28)">voice 4</text>
-
-          <!-- R1 bumper, right inner -->
-          <rect x="736" y="46" width="72" height="22" rx="6" fill="rgba(232,58,110,0.05)" stroke="rgba(232,58,110,0.2)" stroke-width="1"/>
-          <text x="772" y="61" text-anchor="middle" font-family="monospace" font-size="8.5" fill="rgba(232,58,110,0.5)">R1</text>
-          <text x="772" y="70" text-anchor="middle" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.15)">bumper</text>
-
-          <!-- R2 — analog trigger, right outer -->
-          <rect x="816" y="40" width="84" height="28" rx="8" fill="rgba(232,58,110,0.12)" stroke="rgba(232,58,110,0.4)" stroke-width="1.3"/>
-          <text x="858" y="56" text-anchor="middle" font-family="monospace" font-size="9" fill="rgba(232,58,110,0.85)" font-weight="bold">R2</text>
-          <text x="858" y="67" text-anchor="middle" font-family="monospace" font-size="6" fill="rgba(255,255,255,0.2)">analog trigger</text>
-        </svg>
-        <div class="hw-back-note">L2 / R2 = analog triggers (index finger) · L1 / R1 = bumpers (middle finger) · All on underside — never visible from top</div>
-      </div>
-
-      <!-- Material note -->
-      <div class="hw-controller-note">CNC anodised aluminium body · brushed steel joystick caps · silicone touchplates · not final</div>
-    </div>
 
     <!-- ── VISION ────────────────────────────────────────────────── -->
     <div class="hw-vision">
@@ -1535,9 +1215,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 </section>
 </div>
 
-
-
-
+<div class="section-divider"><span class="section-divider-num">04</span><span class="section-divider-name">Impressions</span><div class="section-divider-line"></div></div>
 <div class="page" id="pageImpressions">
   <div class="impressions-page">
     <div class="impressions-inner">
@@ -1639,6 +1317,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   </div>
 </div>
 
+<div class="section-divider"><span class="section-divider-num">05</span><span class="section-divider-name">Shop</span><div class="section-divider-line"></div></div>
 <!-- ==================== SHOP PAGE ==================== -->
 <!-- ==================== GAME PAGE ==================== -->
 
@@ -1743,6 +1422,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   </section>
 </div>
 
+<div class="section-divider"><span class="section-divider-num">06</span><span class="section-divider-name">App</span><div class="section-divider-line"></div></div>
 <!-- ==================== APP PAGE ==================== -->
 <div class="page" id="pageApp">
   <section class="app-section">
@@ -1795,7 +1475,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         </div>
       </div>
 
-      <!-- App mockup — plugin screenshot adapted to phone mockup -->
+      <!-- App mockup -->
       <div class="app-right">
         <div class="app-mockup-wrap">
           <div class="app-mockup-label">DIMEA App — UI Concept</div>
@@ -1804,36 +1484,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
               <div class="app-phone-shell">
                 <div class="app-phone-notch"></div>
                 <div class="app-phone-screen">
-                  <img
-                    src="assets/imp-plugin-ui.png"
-                    alt="DIMEA App UI"
-                    style="
-                      width:100%;
-                      display:block;
-                      /* Crop to the XY pad + chord display + filter section — the most phone-relevant part */
-                      object-fit:cover;
-                      object-position:right top;
-                      aspect-ratio:9/16;
-                      filter:saturate(1.1) brightness(0.95);
-                    "
-                  />
+                  <img src="assets/app-screenshot.png" alt="DIMEA App UI" style="width:100%;display:block;">
                   <div class="app-phone-screen-overlay"></div>
-                  <!-- Overlay UI elements to make it feel like an app -->
-                  <div style="position:absolute;top:0;left:0;right:0;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(rgba(5,8,16,0.8),transparent);">
-                    <span style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.2em;color:rgba(42,232,196,0.7);">DIMEA</span>
-                    <span style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.15em;color:rgba(255,255,255,0.3);">9:41</span>
-                  </div>
-                  <div style="position:absolute;bottom:0;left:0;right:0;padding:10px 12px 14px;background:linear-gradient(transparent,rgba(5,8,16,0.9));display:flex;align-items:center;justify-content:space-between;">
-                    <span style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:rgba(255,255,255,0.95);">Cmaj7</span>
-                    <div style="display:flex;gap:6px;">
-                      <div style="width:28px;height:28px;border-radius:50%;background:rgba(42,232,196,0.12);border:1px solid rgba(42,232,196,0.4);display:flex;align-items:center;justify-content:center;">
-                        <span style="font-size:10px;color:rgba(42,232,196,0.8);">▶</span>
-                      </div>
-                      <div style="width:28px;height:28px;border-radius:50%;background:rgba(232,58,110,0.12);border:1px solid rgba(232,58,110,0.4);display:flex;align-items:center;justify-content:center;">
-                        <span style="font-size:10px;color:rgba(232,58,110,0.8);">⏺</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="app-phone-bar"></div>
               </div>
@@ -1843,47 +1495,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
               <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,180,60,1);display:inline-block;"></span>
               IN DEVELOPMENT
             </div>
-
-            <!-- App Icon -->
-            <div style="margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px;">
-              <div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:rgba(42,232,196,0.4);">App Icon Concept</div>
-              <!-- SVG icon matching the chord joystick visual: dark rounded square, teal arc, stacked chord dots -->
-              <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.7)) drop-shadow(0 0 12px rgba(42,232,196,0.12));">
-                <defs>
-                  <linearGradient id="iconBg" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#0d1220"/>
-                    <stop offset="100%" stop-color="#080c18"/>
-                  </linearGradient>
-                  <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#2ae8c4" stop-opacity="0.35"/>
-                    <stop offset="100%" stop-color="#2ae8c4" stop-opacity="0"/>
-                  </radialGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="1.5" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                </defs>
-                <!-- Background rounded square -->
-                <rect width="80" height="80" rx="18" ry="18" fill="url(#iconBg)"/>
-                <!-- Subtle grid lines -->
-                <line x1="40" y1="8" x2="40" y2="72" stroke="rgba(42,232,196,0.06)" stroke-width="0.5"/>
-                <line x1="8" y1="40" x2="72" y2="40" stroke="rgba(42,232,196,0.06)" stroke-width="0.5"/>
-                <!-- Teal arc — the joystick path / comma shape -->
-                <path d="M 54 18 Q 68 30 60 46 Q 54 58 44 62" fill="none" stroke="#2ae8c4" stroke-width="2.8" stroke-linecap="round" filter="url(#glow)"/>
-                <!-- Glow halo behind top dot -->
-                <circle cx="44" cy="36" r="10" fill="url(#dotGlow)"/>
-                <!-- Chord dots stacked vertically — top dot is teal (active/root), rest are pale -->
-                <circle cx="44" cy="36" r="6.5" fill="#2ae8c4" opacity="0.95"/>
-                <circle cx="44" cy="36" r="6.5" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-                <circle cx="44" cy="50" r="5" fill="rgba(180,200,220,0.45)"/>
-                <circle cx="44" cy="62" r="4" fill="rgba(180,200,220,0.28)"/>
-                <circle cx="44" cy="72" r="3" fill="rgba(180,200,220,0.15)"/>
-                <!-- Border -->
-                <rect width="80" height="80" rx="18" ry="18" fill="none" stroke="rgba(42,232,196,0.18)" stroke-width="1"/>
-              </svg>
-              <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;color:rgba(255,255,255,0.25);">DIMEA</div>
-            </div>
           </div>
+        </div>
       </div>
 
     </div>
@@ -2003,25 +1616,27 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
 <script>
 // ===================== PAGE ROUTING =====================
-// ── NAV ACTIVE STATE — IntersectionObserver ──────────────────
+// ── NAV ACTIVE STATE — scroll-based ──────────────────────────
 const navSections = [
-  {id:'pageHome',    nav:'navPlugins'},
-  {id:'pageHardware',nav:'navHardware'},
-  {id:'pageImpressions',nav:'navImpressions'},
+  {id:'pageHome',        nav:'navPlugins'},
+  {id:'pageAbout',       nav:'navAbout'},
+  {id:'pageHardware',    nav:'navHardware'},
+  {id:'pageImpressions', nav:'navImpressions'},
 ];
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      const match = navSections.find(s => s.id === entry.target.id);
-      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      if(match) document.getElementById(match.nav)?.classList.add('active');
-    }
+function updateNavActive(){
+  const mid = window.scrollY + window.innerHeight * 0.4;
+  let active = null;
+  navSections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if(!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    if(mid >= top) active = s;
   });
-}, {threshold: 0.25});
-navSections.forEach(s => {
-  const el = document.getElementById(s.id);
-  if(el) navObserver.observe(el);
-});
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if(active) document.getElementById(active.nav)?.classList.add('active');
+}
+window.addEventListener('scroll', updateNavActive, {passive:true});
+updateNavActive();
 
 // Keep showPage as scroll helper for any remaining references
 function showPage(name) {
