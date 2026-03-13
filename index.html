@@ -637,6 +637,109 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   color: var(--text-dim);
 }
 
+/* ── ABOUT SECTION ─────────────────────────────────────────────── */
+.about-section {
+  position: relative;
+  padding: 130px 52px 100px;
+  background: var(--navy-deep);
+  overflow: hidden;
+}
+.about-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-manifesto {
+  max-width: 900px;
+  margin-bottom: 0;
+}
+.about-quote {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5.5vw, 72px);
+  line-height: 1.1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-bottom: 28px;
+  quotes: none;
+  border: none;
+  padding: 0;
+}
+.about-quote-accent {
+  color: var(--teal);
+}
+.about-mission {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.7;
+  color: var(--text-dim);
+  max-width: 680px;
+  margin-bottom: 0;
+}
+.about-bio-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 64px;
+  align-items: start;
+  margin-top: 72px;
+  padding-top: 72px;
+  border-top: 1px solid var(--border);
+}
+.about-bio-body {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+}
+.about-pull-quote {
+  background: rgba(42,232,196,0.03);
+  border-left: 2px solid rgba(42,232,196,0.35);
+  padding: 28px 36px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.about-pull-mark {
+  font-family: 'Syne', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  color: rgba(42,232,196,0.25);
+  line-height: 0.8;
+  flex-shrink: 0;
+  margin-top: -4px;
+}
+.about-pull-text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+.about-pull-attr {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.about-photo-wrap {
+  overflow: hidden;
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+@media(max-width:900px) {
+  .about-section { padding: 100px 28px 80px; }
+  .about-bio-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -776,6 +879,42 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
       </div>
     </div>
   </section>
+</div>
+
+<!-- ==================== ABOUT PAGE ==================== -->
+<div class="page" id="pageAbout">
+<section class="about-section">
+  <div class="about-inner">
+
+    <!-- MANIFESTO -->
+    <div class="about-manifesto">
+      <div class="section-label">About</div>
+      <blockquote class="about-quote">
+        Most musicians spend years learning theory just to play a chord.
+        We think that's <span class="about-quote-accent">backwards.</span>
+      </blockquote>
+      <p class="about-mission">Harmony shouldn't be a gate you pass through after decades of practice. It should be a playground — something you feel, explore, and own from the moment you touch it.</p>
+    </div>
+
+    <!-- BIO + PHOTO -->
+    <div class="about-bio-grid">
+      <div class="about-bio-text">
+        <p class="about-bio-body">Dimitri Dähler is a jazz trumpet player, producer, and sound engineer trained at the Hochschule Luzern. The origin of Dimea Arcade was a single frustration: "I wanted chords to improvise over on my trumpet. People told me modular can't do chords. So I built one that could." That modular rig became his masterproject performance at HSLU. The audience called it mesmerizing.</p>
+        <blockquote class="about-pull-quote">
+          <span class="about-pull-mark">"</span>
+          <div>
+            <p class="about-pull-text">I was at exactly the place I'd been searching for years.</p>
+            <div class="about-pull-attr">— Dimitri Dähler</div>
+          </div>
+        </blockquote>
+      </div>
+      <div class="about-photo-wrap">
+        <img src="assets/founder-dimitri.jpg" alt="Dimitri Dähler" class="about-photo">
+      </div>
+    </div>
+
+  </div>
+</section>
 </div>
 
 <!-- ==================== HARDWARE PAGE ==================== -->
