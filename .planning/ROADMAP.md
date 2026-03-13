@@ -73,17 +73,19 @@ Plans:
 **Delivers:**
 - `<title>`, meta description, canonical URL
 - Open Graph tags (og:title, og:description, og:image) — link previews on Discord/Twitter
-- OG image: 1200×630px branded card (HTML canvas or static image)
-- Favicon (teal arc logo, 32×32 + 192×192)
+- OG image: 1200×630px branded card (static PNG)
+- Favicon: favicon.ico (32×32 ICO), icon.svg (scalable, dark-mode aware), apple-touch-icon.png (180×180)
 - sitemap.xml
 - robots.txt
 - Structured data (JSON-LD: SoftwareApplication for plugin)
 
-**Status:** TODO
+**Status:** Planned — 2 plans ready
+
+**Plans:** 2 plans
 
 Plans:
-- [ ] 04-01: Meta tags + OG tags + sitemap
-- [ ] 04-02: Favicon + OG image
+- [ ] 04-01-PLAN.md — Meta tags + OG tags + sitemap + robots.txt (all 5 HTML files + 2 new static files)
+- [ ] 04-02-PLAN.md — Favicon files (icon.svg, favicon.ico, apple-touch-icon.png) + OG image (human checkpoint)
 
 ---
 
