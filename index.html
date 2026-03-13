@@ -890,10 +890,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
     <div class="about-manifesto">
       <div class="section-label">About</div>
       <blockquote class="about-quote">
-        Most musicians spend years learning theory just to play a chord.
-        We think that's <span class="about-quote-accent">backwards.</span>
+        Harmony shouldn't live behind a <span class="about-quote-accent">theory wall.</span>
+        It should be something you feel from the first note.
       </blockquote>
-      <p class="about-mission">Harmony shouldn't be a gate you pass through after decades of practice. It should be a playground — something you feel, explore, and own from the moment you touch it.</p>
+      <p class="about-mission">Remove the barrier between people and harmony. No theory degree required — just the will to explore.</p>
     </div>
 
     <!-- BIO + PHOTO -->
@@ -2360,8 +2360,8 @@ function playChordNow(px, py, brightness, isRetune=false){
     activeOscs.push({osc:oscA, gain:g, voiceIdx:i});
     activeOscs.push({osc:oscB, gain:g, voiceIdx:i});
 
-    // Root voice: blend a low-level square wave for presence and body
-    if(i === 0){
+    // Root voice: square wave for presence — upper half of pad only (py < 0.5)
+    if(i === 0 && py < 0.5){
       const sqOsc = audioCtx.createOscillator();
       sqOsc.type = 'square';
       sqOsc.frequency.setValueAtTime(f, now);

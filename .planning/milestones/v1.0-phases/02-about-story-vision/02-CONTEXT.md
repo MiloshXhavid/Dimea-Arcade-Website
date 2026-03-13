@@ -101,7 +101,7 @@ Both images stay in their current positions in the HTML — just update the `src
 <specifics>
 ## Specific Ideas
 
-- The manifesto quote is locked: *"Most musicians spend years learning theory just to play a chord. We think that's backwards."* — use verbatim
+- The manifesto quote is locked: *"Harmony shouldn't live behind a theory wall. It should be something you feel from the first note."* — use verbatim. Teal accent on "theory wall."
 - Founder photo: `WhatsApp Image 2026-01-17 at 00.04.34.jpeg` — explicitly chosen
 - Founder-voiced hardware intro: start with *"This didn't start as a product. It started as a problem."* — use verbatim from PROJECT.md
 - Pull-quote: *"I was at exactly the place I'd been searching for years."* — use verbatim
