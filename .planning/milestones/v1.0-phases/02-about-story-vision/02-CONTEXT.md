@@ -40,8 +40,8 @@ No new capabilities beyond the ROADMAP scope — no CMS, no blog, no comments.
 Pull-quote below bio: *"I was at exactly the place I'd been searching for years."*
 
 ### Founder Photo
-- Use real photo: `WhatsApp Image 2026-01-17 at 00.04.34.jpeg` from Desktop
-- Source: `C:/Users/Milosh Xhavid/Desktop/DIMEA Webseite/WhatsApp Image 2026-01-17 at 00.04.34.jpeg`
+- Use real photo: `Bild 2.JPG` from BA Konzert folder
+- Source: `C:/Users/Milosh Xhavid/Desktop/Milosh Project/BA Konzert/Bild 2.JPG`
 - Copy to: `assets/founder-dimitri.jpg`
 - Treatment: portrait crop (3:4 or 4:5 aspect ratio), `object-fit: cover`
 - Subtle teal border or no border — Claude's discretion based on what looks good
