@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-13T15:03:23.875Z"
+last_updated: "2026-03-13T19:44:22.472Z"
 ---
 
 ## Position
 
-Phase 02 in progress. Plans 02-01 and 02-02 complete.
+Phase 03 in progress. Plan 03-01 complete (privacy.html + terms.html).
 
 ## Decisions
 
@@ -23,6 +23,10 @@ Phase 02 in progress. Plans 02-01 and 02-02 complete.
 - Founder intro inserted between .hw-header and .hw-origin — above the 3-step strip, not inside it
 - Font size uses clamp(18px, 2vw, 24px) on .hw-founder-voice for fluid scaling
 - Image paths corrected to relative assets/ — matches existing working pattern
+- Impressum folded into privacy.html under "About this Site / Data Controller" — no separate impressum.html (03-01)
+- Legal pages use light theme (white bg, dark text) — distinct from main site dark navy brand (03-01)
+- Identical CSS block per file — consistent with flat HTML project, no shared stylesheet (03-01)
+- Plausible Analytics added as placeholder section in privacy.html — pending activation (03-01)
 
 ## Commits (Phase 01)
 
@@ -40,6 +44,11 @@ Phase 02 in progress. Plans 02-01 and 02-02 complete.
 - `0554550` feat(02-02): add hardware origin images to assets
 - `ca50398` feat(02-02): insert hw-founder-intro paragraph and fix broken image paths
 
+## Commits (Phase 03)
+
+- `225cbf3` feat(03-01): create privacy.html — Privacy Policy + Impressum
+- `07e1e3e` feat(03-01): create terms.html — Terms of Service
+
 ## Next
 
-Phase 02 plan 02-03 (if any) or Phase 03: Plugins Deep-Dive
+Phase 03 plan 03-02: refund.html + footer link wiring in index.html
