@@ -18,6 +18,8 @@ Phase 02 in progress. Plans 02-01 and 02-02 complete.
 - Plugin screenshot embedded from assets/arcade-chord-control.png
 - Video embed skipped (awaiting YouTube/Vimeo URL from user)
 - Plugin title bar implemented as real DOM `.plugin-ui-frame-bar` div (removed ::before approach)
+- Manifesto quote updated to "Harmony shouldn't live behind a theory wall." after human review (02-01)
+- About bio grid uses 3fr 2fr column ratio; portrait aspect-ratio 4/5 with object-position center top (02-01)
 - Founder intro inserted between .hw-header and .hw-origin — above the 3-step strip, not inside it
 - Font size uses clamp(18px, 2vw, 24px) on .hw-founder-voice for fluid scaling
 - Image paths corrected to relative assets/ — matches existing working pattern
