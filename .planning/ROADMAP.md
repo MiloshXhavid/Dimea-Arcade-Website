@@ -85,20 +85,22 @@ Plans:
 
 ## Phase 05: Domain + Vercel Deploy
 
-**Goal:** Get the site live on a real domain.
+**Goal:** Get the site live on dimea.io with HTTPS, CI/CD preview deploys, and clean URL routing.
 
 **Delivers:**
+- Branch renamed master → main (before Vercel connect)
+- `.gitignore` committed (OS/editor junk only)
+- `vercel.json` committed (5 clean-URL rewrites for /about, /hardware, /impressions, /shop, /app)
 - Vercel project connected to dimea-website git repo
-- Custom domain configured (dimea.audio or dimea.io)
-- HTTPS automatic
-- Deploy preview URLs on every git push
-- `.gitignore` + repo clean
+- Custom domain `dimea.io` configured with HTTPS
+- `www.dimea.io` permanently redirecting to `dimea.io`
+- Deploy preview URLs on every git push to non-main branches
 
-**Status:** TODO
+**Status:** TODO — 2 plans
 
 Plans:
-- [ ] 05-01: Vercel setup + git remote + first deploy
-- [ ] 05-02: Domain purchase + DNS configuration
+- [ ] 05-01-PLAN.md — Git cleanup + file creation (branch rename, .gitignore, vercel.json)
+- [ ] 05-02-PLAN.md — Vercel connect + domain configuration + live verification
 
 ---
 
@@ -119,6 +121,31 @@ Plans:
 
 Plans:
 - [x] 06-01: Warm analog engine (waveforms, filter, envelope, reverb, delay)
+
+---
+
+## Phase 07: Commerce & Link Wiring
+
+**Goal:** Wire all real payment and social URLs into the site so visitors can actually buy the plugin, preorder hardware, and find Dimea Arcade on social media. Prerequisite: LemonSqueezy product + Stripe Payment Link created externally before this phase executes.
+
+**Delivers:**
+- "Buy Now" button → real LemonSqueezy checkout URL (plugin, CHF 49 launch price)
+- "Try Free" button → demo download link
+- "Preorder Hardware" buttons → real Stripe Payment Link (CHF 499, deposit model)
+- Canonical URL corrected from `dimea.audio` → `dimea.io` across all HTML files
+- Footer social links → real Dimea Arcade accounts (YouTube, Instagram, others)
+- Buy Me a Coffee link → real page or removed
+- Launch price (CHF 49) shown correctly on site if still in launch period
+
+**Status:** TODO
+
+**External prerequisites (not website tasks):**
+- LemonSqueezy account + Arcade Chord Control product listing created
+- Stripe Payment Link for hardware deposit created
+- Social media accounts created (YouTube, Instagram minimum)
+
+Plans:
+- [ ] 07-01: Wire payment links + fix canonical + update social links
 
 ---
 

@@ -3,17 +3,17 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-14T01:33:34.851Z"
+last_updated: "2026-03-14T11:08:31.374Z"
 progress:
-  total_phases: 6
-  completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_phases: 7
+  completed_phases: 5
+  total_plans: 8
+  completed_plans: 7
 ---
 
 ## Position
 
-Phase 04 complete. Plan 04-01 complete — full SEO metadata on all HTML files, sitemap.xml and robots.txt created. Plan 04-02 complete — favicon.ico, icon.svg, apple-touch-icon.png, and assets/og-image.png (1200x630) all created and committed.
+Phase 05 plan 01 complete (locally). Local branch renamed to main, .gitignore and vercel.json committed. Push blocked — no GitHub remote. User must add remote and push to unblock phase 05 plan 02. Phase 04 complete — full SEO, favicons, and OG image done.
 
 ## Decisions
 
@@ -41,6 +41,8 @@ Phase 04 complete. Plan 04-01 complete — full SEO metadata on all HTML files, 
 - [Phase 04-02]: OG image redesigned to oscilloscope visual + DIMEA wordmark — stronger social sharing impact than text-only card
 - [Phase 04-02]: Icon SVG redesigned with smooth arc, oval dots, and DIMEA text label for legibility at favicon sizes
 - [Phase 04-02]: apple-touch-icon.png uses filled dark background — transparent backgrounds render black on iOS home screen
+- [Phase 05-domain-vercel-deploy]: vercel.json uses explicit rewrites (not wildcard) for 5 SPA routes — legal pages served as real files
+- [Phase 05-domain-vercel-deploy]: No GitHub remote configured — user must create repo, add remote, push to origin/main before Vercel connect
 
 ## Commits (Phase 01)
 
@@ -74,6 +76,11 @@ Phase 04 complete. Plan 04-01 complete — full SEO metadata on all HTML files, 
 - `7953256` feat(04-02): add generated OG social preview image (1200x630)
 - `7f6949f` feat(og-image): redesign social preview — oscilloscopes + DIMEA wordmark
 
+## Commits (Phase 05)
+
+- `1cf8d4f` chore(05-01): add .gitignore — OS/editor exclusions only
+- `d340bd6` feat(05-01): add vercel.json — clean URL rewrites for SPA sections
+
 ## Next
 
-Phase 04 complete. All SEO meta, sitemap, robots.txt, favicon assets, and OG image are done. Phase 05 ready — payment processing (Stripe integration).
+Phase 05 plan 01 complete (local). Blocked: no GitHub remote configured. User must create GitHub repo, add remote, and push before Vercel connect. Once pushed, proceed with 05-02 (Vercel project setup + custom domain). Phase 07 (Commerce & Link Wiring) added — requires LemonSqueezy product + Stripe Payment Link + social accounts to be created externally before execution. Domain (dimea.io) not yet purchased — defer until plugin is signed and commerce is set up.
