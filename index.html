@@ -795,6 +795,63 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   }
 }
 
+/* ── PROMO PRICE DISPLAY ── */
+.price-promo-row { display:flex; align-items:baseline; gap:14px; }
+.price-tag-strike { font-family:'Syne',sans-serif; font-size:22px; font-weight:400; color:var(--text-faint); text-decoration:line-through; text-decoration-color:rgba(232,58,110,0.6); }
+.price-launch-tag { display:inline-block; font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.25em; text-transform:uppercase; color:var(--magenta); background:rgba(232,58,110,0.08); border:1px solid rgba(232,58,110,0.25); padding:4px 10px; margin:8px 0; }
+
+/* ── SHOP PROMO PRICE ── */
+.shop-price-promo-row { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:4px; }
+.shop-price-strike { font-family:'Syne',sans-serif; font-size:16px; font-weight:400; color:var(--text-faint); text-decoration:line-through; text-decoration-color:rgba(232,58,110,0.6); }
+.shop-launch-tag { display:inline-block; font-family:'DM Mono',monospace; font-size:7px; letter-spacing:.2em; text-transform:uppercase; color:var(--magenta); background:rgba(232,58,110,0.07); border:1px solid rgba(232,58,110,0.2); padding:3px 8px; margin-bottom:10px; }
+
+/* ── TRUST BADGE ── */
+.trust-badge { display:flex; align-items:center; gap:8px; font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-top:10px; opacity:.85; }
+
+/* ── TESTIMONIALS ── */
+.shop-testimonials { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-bottom:none; }
+.testimonial-card { background:var(--navy-deep); padding:24px 28px; display:flex; flex-direction:column; }
+.testimonial-stars { color:var(--teal); font-size:11px; letter-spacing:3px; margin-bottom:10px; }
+.testimonial-quote { font-size:13px; line-height:1.7; color:var(--text-dim); font-style:italic; margin-bottom:14px; flex:1; }
+.testimonial-author { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-faint); }
+
+/* ── SOCIAL PROOF BAR ── */
+.social-proof-bar { background:var(--navy-deep); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:18px 52px; display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap; }
+.proof-item { display:flex; align-items:center; gap:10px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--text-dim); white-space:nowrap; }
+.proof-dot { width:4px; height:4px; border-radius:50%; background:var(--teal); flex-shrink:0; }
+.proof-sep { width:1px; height:16px; background:var(--border-mid); }
+@media(max-width:900px) { .social-proof-bar { padding:14px 28px; gap:16px; } }
+
+/* ── STICKY BUY CTA ── */
+.sticky-plugin-cta { position:fixed; bottom:36px; right:24px; z-index:400; opacity:0; pointer-events:none; transform:translateY(10px); transition:opacity .3s, transform .3s; }
+.sticky-plugin-cta.visible { opacity:1; pointer-events:auto; transform:translateY(0); }
+.sticky-cta-inner { display:flex; align-items:center; gap:14px; background:rgba(5,8,16,0.97); border:1px solid rgba(42,232,196,0.25); padding:12px 16px 12px 20px; box-shadow:0 8px 40px rgba(0,0,0,0.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+.sticky-cta-label { display:flex; flex-direction:column; gap:3px; }
+.sticky-cta-name { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.2em; text-transform:uppercase; color:var(--text-faint); }
+.sticky-cta-price { font-family:'Syne',sans-serif; font-size:15px; font-weight:700; color:var(--text); line-height:1; }
+.sticky-cta-price s { font-size:11px; color:var(--text-faint); font-weight:400; margin-right:4px; }
+.sticky-cta-btn { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; background:var(--teal); color:var(--navy-deep); border:none; padding:11px 18px; cursor:none; white-space:nowrap; transition:background .2s; font-weight:600; clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px)); }
+.sticky-cta-btn:hover { background:#4fffd9; }
+@media(pointer:coarse) { .sticky-cta-btn { cursor:pointer; } }
+@media(max-width:600px) { .sticky-plugin-cta { right:12px; bottom:36px; } .sticky-cta-inner { padding:10px 12px; gap:10px; } .sticky-cta-name { display:none; } }
+
+/* ── 600px BREAKPOINT ── */
+@media(max-width:600px) {
+  nav { padding:16px 20px; }
+  .hero-left { padding:100px 20px 36px; }
+  .plugin-section { padding:80px 20px 60px; }
+  .plugin-how { grid-template-columns:1fr; }
+  .plugin-how-arrow { display:none; }
+  .plugin-how-step { border-bottom:1px solid var(--border); }
+  .plugin-how-step:last-child { border-bottom:none; }
+  .hw-road-steps { padding-left:24px; margin-left:8px; }
+  .hw-step-dot { left:-31px; }
+  .hw-concepts { grid-template-columns:1fr; }
+  .shop-testimonials { grid-template-columns:1fr; }
+  .proof-sep { display:none; }
+  .social-proof-bar { flex-direction:column; align-items:flex-start; padding:14px 20px; gap:12px; }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -872,7 +929,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
       <p class="hero-sub">The <strong>Arcade Chord Control</strong> turns your gamepad into a real-time harmony engine. Map scales, voices, and tension to physical sticks — then perform like never before.</p>
       <div class="hero-actions">
         <a href="#" class="btn-primary">Preorder Hardware — CHF 499 <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1L13 5L9 9M1 5H13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></a>
-        <a href="#plugins" class="btn-secondary">Get Plugin — CHF 79</a>
+        <a href="#plugins" class="btn-secondary">Get Plugin — CHF 49</a>
         <button class="btn-ghost-text" id="exploreFreeHero" style="background:none;border:none;border-bottom:1px solid transparent;padding:0 0 2px;">Explore Free →</button>
       </div>
       <div class="hero-stats">
@@ -928,6 +985,17 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
     </div>
   </section>
 
+  <!-- SOCIAL PROOF -->
+  <div class="social-proof-bar">
+    <div class="proof-item"><div class="proof-dot"></div>Built by a musician</div>
+    <div class="proof-sep"></div>
+    <div class="proof-item"><div class="proof-dot"></div>Trusted by producers worldwide</div>
+    <div class="proof-sep"></div>
+    <div class="proof-item"><div class="proof-dot"></div>VST3 · AU · AAX · No subscription</div>
+    <div class="proof-sep"></div>
+    <div class="proof-item"><div class="proof-dot"></div>14-day money-back guarantee</div>
+  </div>
+
   <div class="section-divider"></div>
 
   <!-- PLUGIN -->
@@ -978,10 +1046,15 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
             <img src="assets/arcade-chord-control.png" alt="Arcade Chord Control plugin screenshot" style="width:100%;display:block;">
           </div>
           <div class="plugin-price-block">
-            <div class="price-tag"><span>CHF </span>79</div>
+            <div class="price-promo-row">
+              <div class="price-tag"><span>CHF </span>49</div>
+              <div class="price-tag-strike">CHF 79</div>
+            </div>
+            <div class="price-launch-tag">Launch offer · first month only</div>
             <div class="price-note">One-time · All future updates included</div>
-            <div class="price-actions"><a href="#" class="btn-primary">Buy Now</a><a href="#" class="btn-secondary">Try Free</a></div>
-            <a href="manual.html" class="plugin-manual-link" target="_blank">Read the Manual →</a>
+            <div class="price-actions"><a href="#" class="btn-primary">Buy Now — CHF 49</a><a href="#" class="btn-secondary">Try Free</a></div>
+            <div class="trust-badge">✓ 14-day money-back guarantee</div>
+            <a href="manual.html" class="plugin-manual-link" target="_blank" style="margin-top:8px;display:inline-block;">Read the Manual →</a>
           </div>
         </div>
         <div class="plugin-right">
@@ -1302,9 +1375,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <div class="hw-step">
           <div class="hw-step-dot"></div>
           <div class="hw-step-content">
-            <div class="hw-step-label">2026</div>
+            <div class="hw-step-label">2026–2027</div>
             <div class="hw-step-title">Beta Units + Crowdfunding</div>
-            <div class="hw-step-desc">10–20 artist beta units. Kickstarter campaign targeting ~CHF 499. Early backers get direct input on the final spec.</div>
+            <div class="hw-step-desc">10–20 artist beta units. Kickstarter campaign targeting ~CHF 499. Early backers get direct input on the final spec. Est. delivery Q1 2028.</div>
           </div>
         </div>
       </div>
@@ -1447,6 +1520,25 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <p class="shop-desc">Plugin licenses, hardware pre-orders, and future drops — in one place.</p>
       </div>
 
+      <!-- TESTIMONIALS -->
+      <div class="shop-testimonials">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"Finally a chord plugin that makes performing feel natural. I've been using it live and it completely changed how I improvise — no theory needed, just feel."</p>
+          <div class="testimonial-author">— Placeholder · Producer, Berlin</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"The gamepad integration is insane. I mapped my PS5 controller and now I'm playing chord progressions I never would have thought of at a keyboard. This is the future."</p>
+          <div class="testimonial-author">— Placeholder · Beatmaker, Zürich</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">"As a trumpet player with no piano skills, this gave me access to harmony I've always heard in my head but could never play. The looper makes it a full instrument."</p>
+          <div class="testimonial-author">— Placeholder · Jazz Musician, Luzern</div>
+        </div>
+      </div>
+
       <div class="shop-grid">
 
         <!-- Plugin — available now -->
@@ -1467,13 +1559,18 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
             </ul>
           </div>
           <div class="shop-card-footer">
-            <div class="shop-price">CHF 79 <span class="shop-price-note">one-time licence</span></div>
-            <button class="shop-btn shop-btn--primary" id="buyPluginBtn">Buy Now — CHF 79 →</button>
+            <div class="shop-price-promo-row">
+              <div class="shop-price">CHF 49</div>
+              <div class="shop-price-strike">CHF 79</div>
+            </div>
+            <div class="shop-launch-tag">Launch offer · first month only</div>
+            <span class="shop-price-note" style="display:block;margin-bottom:6px;">one-time licence · all updates included</span>
+            <button class="shop-btn shop-btn--primary" id="buyPluginBtn">Buy Now — CHF 49 →</button>
             <div class="shop-checkout" id="pluginCheckout">
               <div class="checkout-label">Enter your email — we'll send the download link instantly.</div>
               <div class="checkout-row">
                 <input class="checkout-input" type="email" placeholder="your@email.com" id="checkoutEmail" />
-                <button class="checkout-pay" id="checkoutPay">Pay CHF 79</button>
+                <button class="checkout-pay" id="checkoutPay">Pay CHF 49</button>
               </div>
               <div class="checkout-methods">
                 <span class="checkout-method">💳 Card</span>
@@ -1483,13 +1580,14 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
               </div>
               <div class="checkout-note">Secure checkout · Instant delivery · Lifetime licence · Free updates</div>
             </div>
+            <div class="trust-badge" style="margin-top:6px;">✓ 14-day money-back guarantee</div>
           </div>
         </div>
 
         <!-- Hardware — pre-order -->
         <div class="shop-card shop-card--preorder">
           <div class="shop-card-header">
-            <span class="shop-badge shop-badge--soon">Pre-Order · 2026</span>
+            <span class="shop-badge shop-badge--soon">Limited first batch · Est. Q1 2028</span>
           </div>
           <div class="shop-card-body">
             <div class="shop-card-category">Hardware</div>
@@ -1506,6 +1604,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           </div>
           <div class="shop-card-footer">
             <div class="shop-price">~CHF 499 <span class="shop-price-note">early-backer price</span></div>
+            <div class="trust-badge" style="margin-bottom:8px;">⚡ Limited first batch · crowdfunding 2026</div>
             <button class="shop-btn shop-btn--waitlist" onclick="document.getElementById('pageHardware').querySelector('.hw-email-input').focus(); document.getElementById('pageHardware').scrollIntoView({behavior:'smooth'});">Join Waitlist →</button>
           </div>
         </div>
@@ -3943,6 +4042,34 @@ if(exploreFreeOverlay){
     document.getElementById('gameOverlay').classList.add('open');
   });
 }
+</script>
+
+<!-- ── STICKY PLUGIN CTA ── -->
+<div class="sticky-plugin-cta" id="stickyPluginCta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-label">
+      <div class="sticky-cta-name">Arcade Chord Control</div>
+      <div class="sticky-cta-price"><s>CHF 79</s> CHF 49</div>
+    </div>
+    <button class="sticky-cta-btn" onclick="document.getElementById('buyPluginBtn').click(); document.getElementById('plugins').scrollIntoView({behavior:'smooth'});">Buy Now →</button>
+  </div>
+</div>
+
+<script>
+// ── STICKY PLUGIN CTA ──
+(function(){
+  const cta = document.getElementById('stickyPluginCta');
+  const pluginSection = document.getElementById('plugins');
+  if(!cta || !pluginSection) return;
+  function checkStickyCta(){
+    const rect = pluginSection.getBoundingClientRect();
+    const pastPrice = rect.top + 400 < 0;
+    const stillVisible = rect.bottom > 100;
+    cta.classList.toggle('visible', pastPrice && stillVisible);
+  }
+  window.addEventListener('scroll', checkStickyCta, {passive:true});
+  checkStickyCta();
+})();
 </script>
 </body>
 </html>
