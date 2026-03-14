@@ -8,12 +8,12 @@ progress:
   total_phases: 6
   completed_phases: 0
   total_plans: 2
-  completed_plans: 1
+  completed_plans: 2
 ---
 
 ## Position
 
-Phase 04 in progress. Plan 04-01 complete — full SEO metadata on all HTML files, sitemap.xml and robots.txt created.
+Phase 04 complete. Plan 04-01 complete — full SEO metadata on all HTML files, sitemap.xml and robots.txt created. Plan 04-02 complete — favicon.ico, icon.svg, apple-touch-icon.png, and assets/og-image.png (1200x630) all created and committed.
 
 ## Decisions
 
@@ -38,6 +38,9 @@ Phase 04 in progress. Plan 04-01 complete — full SEO metadata on all HTML file
 - [Phase 04-seo-meta-favicon]: og:image reused across legal pages — branded fallback, no page-specific art exists
 - [Phase 04-seo-meta-favicon]: manual.html excluded from sitemap and given noindex — internal reference doc, not product page
 - [Phase 04-seo-meta-favicon]: JSON-LD placed as last element inside <head> before </head> — after all inline CSS
+- [Phase 04-02]: OG image redesigned to oscilloscope visual + DIMEA wordmark — stronger social sharing impact than text-only card
+- [Phase 04-02]: Icon SVG redesigned with smooth arc, oval dots, and DIMEA text label for legibility at favicon sizes
+- [Phase 04-02]: apple-touch-icon.png uses filled dark background — transparent backgrounds render black on iOS home screen
 
 ## Commits (Phase 01)
 
@@ -66,7 +69,11 @@ Phase 04 in progress. Plan 04-01 complete — full SEO metadata on all HTML file
 
 - `089f91a` feat(04-01): add full SEO head to index.html — title, OG, Twitter, JSON-LD, favicon
 - `e7299b3` feat(04-01): add SEO meta to legal pages, noindex to manual, create sitemap + robots
+- `c154a07` feat(04-02): create favicon files — icon.svg, favicon.ico, apple-touch-icon.png
+- `5c679dd` feat(04-02): redesign logo mark — smooth arc, oval dots, DIMEA text in icon
+- `7953256` feat(04-02): add generated OG social preview image (1200x630)
+- `7f6949f` feat(og-image): redesign social preview — oscilloscopes + DIMEA wordmark
 
 ## Next
 
-Phase 04 plan 04-01 complete. Favicon asset files (favicon.ico, icon.svg, apple-touch-icon.png) and og-image.png still needed. Phase 05 ready — payment processing.
+Phase 04 complete. All SEO meta, sitemap, robots.txt, favicon assets, and OG image are done. Phase 05 ready — payment processing (Stripe integration).
