@@ -1,23 +1,24 @@
-# Dimea Arcade Website — Roadmap
-
-**Milestone:** v1.0 — Launch-Ready Site
-**Goal:** A live, professional website with working plugin sales and hardware waitlist. Ships before or with plugin launch (~2 weeks).
+# Dimea Arcade Website — Master Roadmap
 
 ---
 
+## Milestone Overview
+
+| Milestone | Goal | Status |
+|-----------|------|--------|
+| **v1.0 — Launch-Ready Site** | Live site, professional quality, plugin sales + hardware waitlist | ⏳ In Progress |
+| v2.0 — Full Commerce | Plugin purchasable, hardware deposit live, crypto payments | 🔒 Blocked (Mac signing ~2026-03-21) |
+| v3.0 — Trust & Support | Testimonials, DAW compatibility, FAQ, analytics | ⏳ Queued |
+| v4.0 — Growth & Content | Blog, press kit, social, app landing page | ⏳ Queued |
+| v5.0 — Kickstarter Campaign | DIMEOLA campaign page, reward tiers, backer comms | ⏳ Queued |
+
+---
+
+<!-- ▶ CURRENT MILESTONE: v1.0 — Launch-Ready Site -->
+
 ## Phase 01: Fix, Polish & Mobile
 
-**Goal:** Take the existing index.html from prototype to production-ready. Fix all console errors, restore joystick audio, make it work on mobile, and ensure every section is complete.
-
-**Delivers:**
-- Zero JS console errors
-- Joystick XY pad plays audio on click (Web Audio engine working)
-- Mobile-responsive layout (nav, hero, all sections)
-- Arcade easter egg game launches on "Explore Free" button
-- Plugin screenshot embedded in plugin section
-- Rough demo video embedded (IMG_7305.mov) with "rough demo" label
-- All nav links working, smooth scroll
-- Status bar, custom cursor, all animations intact
+**Goal:** Take the existing index.html from prototype to production-ready.
 
 **Status:** DONE
 
@@ -28,14 +29,7 @@ Plans:
 
 ## Phase 02: About / Story / Vision
 
-**Goal:** Add the founder story, manifesto, and brand vision as a dedicated section. This is the emotional core of the site — it sells the person, not just the product.
-
-**Delivers:**
-- Manifesto section: "Most musicians spend years learning theory just to play a chord. We think that's backwards."
-- Founder bio: Dimitri Dähler — jazz trumpet, HSLU, modular rig, masterproject performance
-- Hardware origin story: "This didn't start as a product. It started as a problem."
-- Founder photo placeholder (ready for image drop-in)
-- Visual design matching brand (navy/teal/magenta)
+**Goal:** Add the founder story, manifesto, and brand vision as a dedicated section.
 
 **Status:** DONE
 
@@ -48,13 +42,6 @@ Plans:
 
 **Goal:** Create the three pages required by LemonSqueezy and Stripe before payments go live.
 
-**Delivers:**
-- `/privacy.html` — Privacy Policy (GDPR-compliant)
-- `/terms.html` — Terms of Service
-- `/refund.html` — Refund Policy (no-questions 14-day for plugin, deposit non-refundable for hardware with clear notice)
-- Footer links to all three
-- Cookie-free analytics note (Plausible = no consent banner needed)
-
 **Status:** DONE
 
 Plans:
@@ -66,20 +53,11 @@ Plans:
 
 **Goal:** Make the site look good when shared, rank for relevant searches, and have a proper favicon.
 
-**Delivers:**
-- `<title>`, meta description, canonical URL
-- Open Graph tags (og:title, og:description, og:image) — link previews on Discord/Twitter
-- OG image: 1200×630px branded card (static PNG)
-- Favicon: favicon.ico (32×32 ICO), icon.svg (scalable, dark-mode aware), apple-touch-icon.png (180×180)
-- sitemap.xml
-- robots.txt
-- Structured data (JSON-LD: SoftwareApplication for plugin)
-
-**Status:** Complete — 2/2 plans executed
+**Status:** DONE
 
 Plans:
-- [x] 04-01-PLAN.md — Meta tags + OG tags + sitemap + robots.txt (all 5 HTML files + 2 new static files)
-- [x] 04-02-PLAN.md — Favicon files (icon.svg, favicon.ico, apple-touch-icon.png) + OG image (human checkpoint)
+- [x] 04-01: Meta tags + OG tags + sitemap + robots.txt
+- [x] 04-02: Favicon files + OG image
 
 ---
 
@@ -87,35 +65,17 @@ Plans:
 
 **Goal:** Get the site live on dimea.io with HTTPS, CI/CD preview deploys, and clean URL routing.
 
-**Delivers:**
-- Branch renamed master → main (before Vercel connect)
-- `.gitignore` committed (OS/editor junk only)
-- `vercel.json` committed (5 clean-URL rewrites for /about, /hardware, /impressions, /shop, /app)
-- Vercel project connected to dimea-website git repo
-- Custom domain `dimea.io` configured with HTTPS
-- `www.dimea.io` permanently redirecting to `dimea.io`
-- Deploy preview URLs on every git push to non-main branches
-
-**Status:** TODO — 2 plans
+**Status:** In Progress — 1/2 plans complete
 
 Plans:
-- [ ] 05-01-PLAN.md — Git cleanup + file creation (branch rename, .gitignore, vercel.json)
-- [ ] 05-02-PLAN.md — Vercel connect + domain configuration + live verification
+- [x] 05-01: Git cleanup + Vercel connect — live at dimea-arcade-website-cfy8wg6sg-miloshxhavids-projects.vercel.app
+- [ ] 05-02: Domain purchase + DNS — deferred ~2026-03-21 (waiting for Mac signing + commerce setup)
 
 ---
 
 ## Phase 06: Joystick Audio — Warm Analog Sound
 
-**Goal:** Transform the joystick XY pad from a digital-sounding raw oscillator engine into a warm, lush, analog-feeling synth pad — inspired by the Elka Synthex and Oberheim OB-8.
-
-**Delivers:**
-- Soft waveforms only (sine + triangle) — sawtooth and square removed from random pool
-- Studio plate reverb with medium presence — old tail fades on chord change
-- ~200ms delay, darker filtered repeats, 3 decaying repeats, always on
-- Soft attack (~30ms) preserving punchiness
-- 1s release tail on chord lift
-- Filter stays dark overall — sweep range reduced, never fully opens
-- Sub-oscillator retained
+**Goal:** Transform the joystick XY pad into a warm, lush, analog-feeling synth pad.
 
 **Status:** DONE
 
@@ -126,20 +86,12 @@ Plans:
 
 ## Phase 07: Commerce & Link Wiring
 
-**Goal:** Wire all real payment and social URLs into the site so visitors can actually buy the plugin, preorder hardware, and find Dimea Arcade on social media. Prerequisite: LemonSqueezy product + Stripe Payment Link created externally before this phase executes.
+**Goal:** Wire all real payment and social URLs into the site.
 
-**Delivers:**
-- "Buy Now" button → real LemonSqueezy checkout URL (plugin, CHF 49 launch price)
-- "Try Free" button → demo download link
-- "Preorder Hardware" buttons → real Stripe Payment Link (CHF 499, deposit model)
-- Canonical URL corrected from `dimea.audio` → `dimea.io` across all HTML files
-- Footer social links → real Dimea Arcade accounts (YouTube, Instagram, others)
-- Buy Me a Coffee link → real page or removed
-- Launch price (CHF 49) shown correctly on site if still in launch period
+**Status:** TODO — BLOCKED (external prereqs)
 
-**Status:** TODO
-
-**External prerequisites (not website tasks):**
+**External prerequisites:**
+- Mac plugin signing complete
 - LemonSqueezy account + Arcade Chord Control product listing created
 - Stripe Payment Link for hardware deposit created
 - Social media accounts created (YouTube, Instagram minimum)
@@ -149,5 +101,151 @@ Plans:
 
 ---
 
-*Milestone goal: Professional live website ready for plugin launch*
-*Created: 2026-03-13*
+<!-- MILESTONE: v2.0 — Full Commerce (starts ~2026-03-21) -->
+
+## Phase 08: LemonSqueezy Plugin Checkout
+
+**Goal:** Plugin purchasable directly from the site via overlay checkout.
+
+**Delivers:**
+- LS overlay JS snippet added to index.html
+- "Buy Now" button triggers LS overlay (not redirect)
+- Launch price CHF 49 / regular CHF 79 configured in LS
+- Post-purchase: customer receives download link + license key by email (LS handles automatically)
+
+**Status:** TODO
+
+**External prerequisites:**
+- LemonSqueezy account + Arcade Chord Control product listing created
+- Windows installer uploaded to LemonSqueezy
+
+Plans:
+- [ ] 08-01: Wire LemonSqueezy overlay checkout into index.html
+
+---
+
+## Phase 09: Hardware Waitlist + Newsletter
+
+**Goal:** Collect interested buyers for DIMEOLA before Kickstarter. Build the email list now.
+
+**Delivers:**
+- Mailchimp audience configured (launch list)
+- Waitlist form wired to Mailchimp JSONP in hardware section
+- General newsletter signup in footer wired to Mailchimp JSONP
+- Double opt-in confirmation email (Mailchimp handles)
+- Single Final Welcome Email (free plan) — drafted and activated in Mailchimp
+
+**Status:** TODO — 2 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — Mailchimp setup checkpoint + draft welcome email copy
+- [ ] 09-02-PLAN.md — Wire JSONP integration into index.html (both forms)
+
+---
+
+## Phase 10: Stripe Hardware Deposit / Preorder
+
+**Goal:** Accept deposits for DIMEOLA hardware. Validates demand + generates early revenue.
+
+**Delivers:**
+- "Preorder Hardware" button → Stripe Payment Link
+- Clear messaging: "deposit secures your unit — remainder due on ship"
+- Refund policy link visible before checkout
+
+**Status:** TODO
+
+**External prerequisites:**
+- Stripe Payment Link for hardware deposit (CHF 99–149) created
+
+Plans:
+- [ ] 10-01: Wire Stripe deposit Payment Link into hardware section
+
+---
+
+## Phase 11: Crypto Checkout
+
+**Goal:** Accept BTC, ETH, USDC, SOL for plugin purchases and hardware deposits.
+
+**Delivers:**
+- Coinbase Commerce account set up
+- Plugin section: crypto checkout button alongside LemonSqueezy overlay
+- Hardware section: crypto deposit option alongside Stripe
+- Clear buyer instructions
+
+**Status:** TODO
+
+**External prerequisites:**
+- Coinbase Commerce account + charge links created
+
+Plans:
+- [ ] 11-01: Add crypto checkout options to plugin + hardware sections
+
+---
+
+<!-- MILESTONE: v3.0 — Trust & Support -->
+
+## Phase 12: Testimonials + Social Proof
+
+**Status:** TODO
+
+---
+
+## Phase 13: DAW Compatibility + System Requirements + FAQ
+
+**Status:** TODO
+
+---
+
+## Phase 14: Analytics (Plausible)
+
+**Status:** TODO
+
+---
+
+<!-- MILESTONE: v4.0 — Growth & Content -->
+
+## Phase 15: Blog / Changelog
+
+**Status:** TODO
+
+---
+
+## Phase 16: Press Kit
+
+**Status:** TODO
+
+---
+
+## Phase 17: Social + Community
+
+**Status:** TODO
+
+---
+
+## Phase 18: App Landing Page
+
+**Status:** TODO
+
+---
+
+<!-- MILESTONE: v5.0 — Kickstarter Campaign -->
+
+## Phase 19: Kickstarter Campaign Page
+
+**Status:** TODO
+
+---
+
+## Phase 20: Backer Communication
+
+**Status:** TODO
+
+---
+
+## Phase 21: Campaign Launch
+
+**Status:** TODO
+
+---
+
+*Created: 2026-03-13 | Last updated: 2026-03-14*
