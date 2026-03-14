@@ -115,12 +115,10 @@ Plans:
 - Filter stays dark overall — sweep range reduced, never fully opens
 - Sub-oscillator retained
 
-**Status:** TODO
+**Status:** DONE
 
 Plans:
-- [ ] 06-01: Waveform + filter + envelope reshape
-- [ ] 06-02: Plate reverb implementation (Web Audio convolver or algorithmic)
-- [ ] 06-03: Delay engine (filtered feedback loop, 3 repeats)
+- [x] 06-01: Warm analog engine (waveforms, filter, envelope, reverb, delay)
 
 ---
 
