@@ -617,8 +617,29 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
 /* ── PLUGIN PHOTO FRAME ── */
 .plugin-ui-frame--photo { border:1px solid var(--border-mid); background:#000; overflow:hidden; }
+.plugin-ui-frame--photo::before { display:none; }
 .plugin-ui-frame-bar { display:flex; justify-content:space-between; align-items:center; font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.25em; text-transform:uppercase; color:var(--text-faint); padding:8px 12px; background:rgba(0,0,0,.4); border-bottom:1px solid var(--border); }
 .ui-close { width:10px; height:10px; border-radius:50%; background:rgba(255,80,80,.5); display:inline-block; }
+
+/* ── PLUGIN HOW IT WORKS ── */
+.plugin-how { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; margin:40px 0 60px; border:1px solid var(--border); }
+.plugin-how-step { padding:28px 24px; display:flex; flex-direction:column; gap:6px; }
+.plugin-how-arrow { display:flex; align-items:center; justify-content:center; padding:0 20px; border-left:1px solid var(--border); border-right:1px solid var(--border); font-family:'DM Mono',monospace; font-size:16px; color:var(--teal); opacity:.35; }
+.how-num { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.35em; color:var(--teal); opacity:.6; }
+.how-icon { font-size:18px; margin:6px 0 2px; }
+.how-title { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--text); }
+.how-desc { font-size:12px; line-height:1.65; color:var(--text-dim); }
+
+/* ── PLUGIN SUMMARY PILLS ── */
+.plugin-summary-pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.plugin-summary-pill { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.2em; text-transform:uppercase; color:var(--teal); border:1px solid rgba(42,232,196,.25); padding:5px 12px; background:rgba(42,232,196,.04); }
+
+@media(max-width:900px){
+  .plugin-how { grid-template-columns:1fr; }
+  .plugin-how-arrow { display:none; }
+  .plugin-how-step { border-bottom:1px solid var(--border); }
+  .plugin-how-step:last-child { border-bottom:none; }
+}
 .plugin-photo-wrap { position:relative; overflow:hidden; cursor:none; }
 .plugin-photo { width:100%; display:block; transition:transform 0.4s ease; }
 .plugin-photo-wrap:hover .plugin-photo { transform:scale(1.02); }
@@ -916,13 +937,44 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <div class="plugin-title-block">
           <div class="section-label">Plugin</div>
           <h2 class="plugin-title">Arcade <span>Chord Control</span></h2>
-          <p class="plugin-subtitle">A spatial harmony controller for performers and producers. Every position on the XY pad is a chord — move to explore. Four voices, full per-voice MIDI routing, LFO modulation engine, looper, and arpeggiator built in.</p>
+          <p class="plugin-subtitle">Drag a dot across the pad — every position is a harmonically valid chord. Built for performers and producers who want to focus on music, not theory. Four voices, looper, arpeggiator, and full MIDI routing built in.</p>
+          <div class="plugin-summary-pills">
+            <span class="plugin-summary-pill">No wrong notes</span>
+            <span class="plugin-summary-pill">30+ scales</span>
+            <span class="plugin-summary-pill">4 MIDI voices</span>
+            <span class="plugin-summary-pill">Gamepad ready</span>
+            <span class="plugin-summary-pill">DAW sync</span>
+          </div>
         </div>
       </div>
+
+      <div class="plugin-how">
+        <div class="plugin-how-step">
+          <div class="how-num">01</div>
+          <div class="how-icon">🎼</div>
+          <div class="how-title">Pick a Scale</div>
+          <div class="how-desc">Choose from 30+ presets or build your own. Set your key and root — the plugin locks every chord to it.</div>
+        </div>
+        <div class="plugin-how-arrow">→</div>
+        <div class="plugin-how-step">
+          <div class="how-num">02</div>
+          <div class="how-icon">🎯</div>
+          <div class="how-title">Move the Pad</div>
+          <div class="how-desc">Drag anywhere on the XY surface. Y shifts scale degree, X changes chord colour. Every position is valid.</div>
+        </div>
+        <div class="plugin-how-arrow">→</div>
+        <div class="plugin-how-step">
+          <div class="how-num">03</div>
+          <div class="how-icon">🎵</div>
+          <div class="how-title">Full Chords Play</div>
+          <div class="how-desc">Four MIDI voices fire in unison — root, third, fifth, and tension — each routable to its own instrument.</div>
+        </div>
+      </div>
+
       <div class="plugin-body">
         <div class="plugin-sticky-col">
           <div class="plugin-ui-frame plugin-ui-frame--photo">
-            <div class="plugin-ui-frame-bar">DIMEA CHORD JOYSTICK MK2<div class="ui-close"></div></div>
+            <div class="plugin-ui-frame-bar">DIMEA ARCADE CHORD CONTROL<div class="ui-close"></div></div>
             <img src="assets/arcade-chord-control.png" alt="Arcade Chord Control plugin screenshot" style="width:100%;display:block;">
           </div>
           <div class="plugin-price-block">
