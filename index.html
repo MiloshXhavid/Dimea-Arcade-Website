@@ -56,11 +56,7 @@ body::before { content:''; position:fixed; inset:0; background-image:url("data:i
 /* NAV */
 nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-items:center; justify-content:space-between; padding:22px 52px; background:rgba(5,8,16,0.82); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-bottom:1px solid rgba(42,232,196,0.06); transition:background .3s; }
 .logo { display:flex; align-items:center; gap:14px; text-decoration:none; }
-.logo-symbol { position:relative; width:32px; height:38px; flex-shrink:0; }
-.logo-arc { position:absolute; top:0; left:6px; width:18px; height:22px; border:2px solid var(--teal); border-radius:0 50px 50px 0; border-left:none; }
-.logo-dots { position:absolute; bottom:0; left:0; display:flex; flex-direction:column; gap:4px; }
-.logo-dot { border-radius:50%; background:var(--text); }
-.logo-dot:nth-child(1){width:8px;height:8px;} .logo-dot:nth-child(2){width:6px;height:6px;opacity:.7;} .logo-dot:nth-child(3){width:4px;height:4px;opacity:.45;}
+.logo-symbol { flex-shrink:0; width:32px; height:34px; }
 .logo-text-wrap { display:flex; flex-direction:column; gap:2px; }
 .logo-name { font-family:'Syne',sans-serif; font-size:18px; font-weight:800; letter-spacing:.15em; color:var(--text); }
 .logo-tagline { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:.3em; text-transform:uppercase; color:var(--teal-dim); }
@@ -807,7 +803,19 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
 <nav id="mainNav">
   <a class="logo" href="#pageHome">
-    <div class="logo-symbol"><div class="logo-arc"></div><div class="logo-dots"><div class="logo-dot"></div><div class="logo-dot"></div><div class="logo-dot"></div></div></div>
+    <svg class="logo-symbol" viewBox="0 0 32 34" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="logo-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <path d="M 9,2 A 9,9 0 0,1 18,11" fill="none" stroke="#2ae8c4" stroke-width="2" stroke-linecap="round" filter="url(#logo-glow)"/>
+      <ellipse cx="9" cy="15.5" rx="3.5" ry="2.5" fill="#2ae8c4" filter="url(#logo-glow)"/>
+      <ellipse cx="9" cy="20.5" rx="3" ry="2.2" fill="#e8ecf5"/>
+      <ellipse cx="9" cy="25" rx="2.5" ry="1.8" fill="#e8ecf5" opacity="0.7"/>
+      <ellipse cx="9" cy="29" rx="2" ry="1.5" fill="#e8ecf5" opacity="0.45"/>
+    </svg>
     <div class="logo-text-wrap"><div class="logo-name">DIMEA</div><div class="logo-tagline">Bringing Harmony to the People</div></div>
   </a>
   <ul class="nav-links">

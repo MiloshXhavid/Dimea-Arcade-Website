@@ -1,19 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    :root { --teal: #2ae8c4; --dot: #e8ecf5; }
-    @media (prefers-color-scheme: dark) {
-      :root { --teal: #2ae8c4; --dot: #e8ecf5; }
-    }
-  </style>
-  <!-- Right-arc: open on the left (no left border), rounded on the right -->
-  <path d="M10,2 L20,2 Q26,2 26,8 L26,18 Q26,24 20,24 L10,24"
-        fill="none"
-        stroke="var(--teal)"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
-  <!-- Three stacked dots at bottom-left (8px, 6px, 4px radius with gaps) -->
-  <circle cx="7" cy="26" r="4" fill="var(--dot)"/>
-  <circle cx="7" cy="20" r="3" fill="var(--dot)" opacity="0.7"/>
-  <circle cx="7" cy="15" r="2" fill="var(--dot)" opacity="0.45"/>
+  <defs>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Dark rounded background -->
+  <rect width="32" height="32" rx="7" fill="#050810"/>
+  <!-- Quarter-circle arc: starts upper-left, sweeps right to middle-right -->
+  <path d="M 9,3 A 9,9 0 0,1 18,12"
+        fill="none" stroke="#2ae8c4" stroke-width="2" stroke-linecap="round"
+        filter="url(#glow)"/>
+  <!-- Dot 1: teal, largest -->
+  <ellipse cx="9" cy="16.5" rx="3.5" ry="2.5" fill="#2ae8c4" filter="url(#glow)"/>
+  <!-- Dot 2: white -->
+  <ellipse cx="9" cy="21.5" rx="3" ry="2.2" fill="#e8ecf5"/>
+  <!-- Dot 3: white 70% -->
+  <ellipse cx="9" cy="26" rx="2.5" ry="1.8" fill="#e8ecf5" opacity="0.7"/>
+  <!-- Dot 4: white 45% -->
+  <ellipse cx="9" cy="30" rx="2" ry="1.5" fill="#e8ecf5" opacity="0.45"/>
+  <!-- DIMEA label (visible at larger sizes, invisible at 16-32px) -->
+  <text x="30" y="30.5" font-family="'Syne', 'Arial Black', sans-serif" font-size="3.5"
+        font-weight="800" fill="#e8ecf5" opacity="0.35" text-anchor="end"
+        letter-spacing="0.4">DIMEA</text>
 </svg>
