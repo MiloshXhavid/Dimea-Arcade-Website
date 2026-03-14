@@ -3,12 +3,17 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-13T21:10:35.403Z"
+last_updated: "2026-03-14T00:17:13.226Z"
+progress:
+  total_phases: 6
+  completed_phases: 0
+  total_plans: 2
+  completed_plans: 1
 ---
 
 ## Position
 
-Phase 03 complete. Plans 03-01 and 03-02 done. All three legal pages live and linked from footer.
+Phase 04 in progress. Plan 04-01 complete — full SEO metadata on all HTML files, sitemap.xml and robots.txt created.
 
 ## Decisions
 
@@ -30,6 +35,9 @@ Phase 03 complete. Plans 03-01 and 03-02 done. All three legal pages live and li
 - Cloudflare-obfuscated Contact href replaced with plain mailto:contact@dimea.audio — Vercel static hosting has no CDN email protection (03-02)
 - Hardware deposit non-refundable notice uses &lt;p&gt;&lt;strong&gt; for prominence — no additional CSS needed (03-02)
 - Dimea Arcade cancellation clause included in refund.html — full deposit refund within 30 days if DIMEOLA project cancelled (03-02)
+- [Phase 04-seo-meta-favicon]: og:image reused across legal pages — branded fallback, no page-specific art exists
+- [Phase 04-seo-meta-favicon]: manual.html excluded from sitemap and given noindex — internal reference doc, not product page
+- [Phase 04-seo-meta-favicon]: JSON-LD placed as last element inside <head> before </head> — after all inline CSS
 
 ## Commits (Phase 01)
 
@@ -54,6 +62,11 @@ Phase 03 complete. Plans 03-01 and 03-02 done. All three legal pages live and li
 - `7cd990c` feat(03-02): create refund.html — Refund Policy
 - `a70ee3c` feat(03-02): wire footer legal links in index.html
 
+## Commits (Phase 04)
+
+- `089f91a` feat(04-01): add full SEO head to index.html — title, OG, Twitter, JSON-LD, favicon
+- `e7299b3` feat(04-01): add SEO meta to legal pages, noindex to manual, create sitemap + robots
+
 ## Next
 
-Phase 04 TBD — payment processing enablement prerequisites met (all legal pages live).
+Phase 04 plan 04-01 complete. Favicon asset files (favicon.ico, icon.svg, apple-touch-icon.png) and og-image.png still needed. Phase 05 ready — payment processing.

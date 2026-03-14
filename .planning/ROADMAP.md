@@ -81,7 +81,7 @@ Plans:
 
 **Status:** Planned — 2 plans ready
 
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Meta tags + OG tags + sitemap + robots.txt (all 5 HTML files + 2 new static files)
