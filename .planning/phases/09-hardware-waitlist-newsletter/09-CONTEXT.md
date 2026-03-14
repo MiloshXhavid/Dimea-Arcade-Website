@@ -18,10 +18,13 @@ Connect the two existing placeholder email forms (hardware waitlist in the hardw
 - Lower friction at signup — no personalization needed
 
 ### Mailchimp Audience Structure
-- One Mailchimp audience (free plan allows only one)
-- Hardware waitlist subscribers tagged: `hardware-waitlist`
-- Footer newsletter subscribers tagged: `newsletter`
-- Duplicate emails: Mailchimp deduplicates — second signup adds the second tag to the existing record (no duplicate contacts)
+- One Mailchimp audience (free plan — only one audience allowed)
+- Mailchimp free plan does NOT support multi-step automations (removed June 2025) — single Final Welcome Email only
+- Subscriber differentiation via **Groups** (not tags — tags are not passable via embedded form POST endpoint)
+- Hardware waitlist form passes group field for "hardware-waitlist" group
+- Footer newsletter form passes group field for "newsletter" group
+- Group IDs are audience-specific — Dimitri must create Groups in Mailchimp dashboard and share the `group[CATEGORY_ID][GROUP_ID]` field names before JS can be finalized
+- Duplicate emails: Mailchimp deduplicates — second signup adds subscriber to second group
 
 ### Form Wiring Method
 - Keep existing custom-styled form HTML exactly as-is (no Mailchimp embed HTML replacement)
@@ -44,24 +47,12 @@ Connect the two existing placeholder email forms (hardware waitlist in the hardw
 
 ### Welcome Email Sequences
 
-#### Hardware Waitlist (tag: hardware-waitlist)
-Two-email sequence, triggered on confirmed subscription:
-
-**Email 1 — Immediate (confirmation + what DIMEOLA is):**
-- Claude drafts copy based on site content (manifesto, about section, hardware section)
-- Tone: warm and personal — Dimitri writing directly to the subscriber ("Hey, I'm Dimitri...")
-- Content: confirm they're on the list + 2-3 sentence explanation of what DIMEOLA is and why it exists
-
-**Email 2 — 1 day after Email 1 (timeline + what to expect):**
-- Content: Kickstarter timeline with `[TIMELINE PLACEHOLDER]` for Dimitri to fill in before activating
-- What milestones remain, what early backers get, what to expect next
-- Same warm/personal tone
-
-#### Footer Newsletter (tag: newsletter)
-One welcome email:
-- Tone: warm and personal
-- Content: thanks for subscribing + brief "here's what you'll get" (hardware updates, plugin updates, tutorials)
-- No sequence — single email, then they receive future broadcast campaigns
+- **Mailchimp plan: FREE** — single built-in "Final Welcome Email" per audience only (multi-step sequences require Essentials $13/month, not chosen)
+- One welcome email covers both signup paths (waitlist + newsletter)
+- Claude drafts the welcome email copy based on site content
+- Tone: warm and personal — Dimitri writing directly ("Hey, I'm Dimitri...")
+- Content: confirm signup, briefly explain DIMEOLA and the plugin, tell them what they'll hear about
+- From name: Dimitri / From email: contact@dimea.audio
 
 ### From Name & Email (Mailchimp sender config)
 - From name: Dimitri
@@ -72,14 +63,16 @@ One welcome email:
 - Not corporate, not brand-voice manifesto style
 - Honest, direct, founder-to-fan
 
-### External Prerequisites (NOT part of this phase)
-- Mailchimp account created
+### External Prerequisites (NOT part of this phase — Dimitri must complete before execution)
+- Mailchimp account created (free plan)
 - Audience created in Mailchimp
-- Mailchimp embedded form POST action URL obtained from audience settings
-- Mailchimp automation/Customer Journeys enabled for welcome sequences
+- Two Groups created in the audience: one for "hardware-waitlist", one for "newsletter"
+- Mailchimp embedded form HTML generated (Audience → Signup forms → Embedded forms) — provides the action URL and `group[X][Y]` field names
+- Double opt-in enabled in Mailchimp audience settings
+- Final Welcome Email written and activated in Mailchimp
 
 ### Claude's Discretion
-- Exact JS implementation for the fetch → Mailchimp POST (JSONP vs hidden iframe vs fetch with no-cors)
+- JSONP implementation details (script-tag injection pattern — required since fetch is CORS-blocked by Mailchimp)
 - Inline error message styling (reuse existing `.hw-waitlist-confirm` pattern or new element)
 - Whether to disable the submit button during POST to prevent double-submit
 
@@ -113,10 +106,11 @@ One welcome email:
 - Founder name: Dimitri (NOT Dimitar)
 - From email: contact@dimea.audio
 - Hardware product: DIMEOLA (the hardware device) — distinct from Arcade Chord Control (the plugin)
-- Mailchimp tag for hardware form: `hardware-waitlist`
-- Mailchimp tag for footer form: `newsletter`
-- Timeline in Email 2: leave as `[TIMELINE PLACEHOLDER]` — Dimitri fills in before activating the sequence
+- Mailchimp Groups (not tags): hardware-waitlist group + newsletter group — IDs provided by Dimitri from dashboard
+- JSONP callback URL format: change `/post?` to `/post-json?` and append `&c=CALLBACK_NAME`
+- Confirmation text update needed: current `#hwConfirm` says "You're on the list. We'll be in touch." — with double opt-in ON this must change to "Check your inbox — click the link to confirm your spot."
 - Privacy policy URL: `/privacy` (routes to privacy.html via vercel.json rewrite)
+- Execution prerequisite: Dimitri sets up Mailchimp account + groups + gets action URL BEFORE executing this plan
 
 </specifics>
 
