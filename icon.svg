@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    :root { --teal: #2ae8c4; --dot: #e8ecf5; }
+    @media (prefers-color-scheme: dark) {
+      :root { --teal: #2ae8c4; --dot: #e8ecf5; }
+    }
+  </style>
+  <!-- Right-arc: open on the left (no left border), rounded on the right -->
+  <path d="M10,2 L20,2 Q26,2 26,8 L26,18 Q26,24 20,24 L10,24"
+        fill="none"
+        stroke="var(--teal)"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+  <!-- Three stacked dots at bottom-left (8px, 6px, 4px radius with gaps) -->
+  <circle cx="7" cy="26" r="4" fill="var(--dot)"/>
+  <circle cx="7" cy="20" r="3" fill="var(--dot)" opacity="0.7"/>
+  <circle cx="7" cy="15" r="2" fill="var(--dot)" opacity="0.45"/>
+</svg>
