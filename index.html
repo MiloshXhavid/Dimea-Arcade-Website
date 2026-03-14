@@ -222,7 +222,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 .ui-slider-name{font-family:'DM Mono',monospace;font-size:6px;color:var(--text-faint);width:28px;}
 .ui-slider-track{flex:1;height:2px;background:var(--border-mid);border-radius:1px;}
 .ui-slider-fill{height:100%;background:var(--teal);border-radius:1px;}
-.plugin-features{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:72px;grid-column:1/-1;margin-top:8px;}
+.plugin-ui-frame--photo{position:sticky;top:100px;}
+.plugin-right{display:flex;flex-direction:column;gap:0;}
+.plugin-features{display:grid;grid-template-columns:1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:0;margin-top:8px;}
 .feature-item{background:var(--navy-mid);padding:32px;display:flex;gap:20px;align-items:flex-start;transition:background .2s;}
 .feature-item:hover{background:rgba(42,232,196,0.02);}
 .feature-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
@@ -927,6 +929,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <div class="plugin-ui-frame-bar">DIMEA CHORD JOYSTICK MK2<div class="ui-close"></div></div>
           <img src="assets/arcade-chord-control.png" alt="Arcade Chord Control plugin screenshot" style="width:100%;display:block;">
         </div>
+        <div class="plugin-right">
         <div class="plugin-video-placeholder" style="padding:32px 24px;border:1px solid var(--border-mid);background:rgba(42,232,196,0.03);text-align:center;align-self:start;">
           <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:var(--teal-dim);margin-bottom:12px;">Demo Video</div>
           <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text-faint);">Demo video coming soon — rough demo available on request</div>
@@ -940,6 +943,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <div class="feature-item"><div class="feature-icon">🌊</div><div class="feature-text"><div class="feature-name">LFO Modulation Engine</div><div class="feature-desc">Multiple waveform shapes with DAW sync or free rate. Routes to any CC destination — filter cutoff, resonance, voice parameters, and custom targets. Sister cross-modulation between LFO pairs. REC mode captures joystick movement as a custom LFO shape.</div><span class="feature-tag">8 CC Destinations</span></div></div>
           <div class="feature-item"><div class="feature-icon">👆</div><div class="feature-text"><div class="feature-name">TouchPlates & Random Trigger</div><div class="feature-desc">Per-voice trigger sources: PAD fires on click, JOY re-triggers continuously on position change, RND fires at random intervals via the built-in random trigger engine. Mix sources per voice for polyrhythmic textures.</div></div></div>
           <div class="feature-item"><div class="feature-icon">🕹</div><div class="feature-text"><div class="feature-name">Gamepad Control</div><div class="feature-desc">Connect any PS4/PS5 or compatible gamepad. Left stick for pitch, right stick for filter/mod. Shoulder buttons control the looper. Face buttons change scale. Full button mapping — perform without touching the mouse.</div><span class="feature-tag">PS4 / PS5 Ready</span></div></div>
+        </div>
         </div>
       </div>
       <div class="compat-row">
