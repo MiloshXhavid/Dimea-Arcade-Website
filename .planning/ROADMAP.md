@@ -19,12 +19,10 @@
 - All nav links working, smooth scroll
 - Status bar, custom cursor, all animations intact
 
-**Status:** TODO
+**Status:** DONE
 
 Plans:
-- [ ] 01-01: Diagnose and fix all console errors + joystick audio
-- [ ] 01-02: Mobile layout + responsive fixes
-- [ ] 01-03: Media embeds (video + screenshot)
+- [x] 01-01: Fix, polish & mobile (audio engine, responsive layout, embeds)
 
 ---
 
@@ -39,11 +37,10 @@ Plans:
 - Founder photo placeholder (ready for image drop-in)
 - Visual design matching brand (navy/teal/magenta)
 
-**Status:** TODO
+**Status:** DONE
 
 Plans:
-- [ ] 02-01: About / Manifesto section HTML + CSS
-- [ ] 02-02: Hardware origin story section (within hardware page)
+- [x] 02-01: About / manifesto section, founder bio, hardware origin story, manual.html
 
 ---
 
@@ -58,11 +55,10 @@ Plans:
 - Footer links to all three
 - Cookie-free analytics note (Plausible = no consent banner needed)
 
-**Status:** In progress — 1/2 plans complete
+**Status:** DONE
 
 Plans:
-- [x] 03-01-PLAN.md — Privacy Policy (privacy.html) + Terms of Service (terms.html)
-- [ ] 03-02-PLAN.md — Refund Policy (refund.html) + footer links wired in index.html
+- [x] 03-01: Legal pages (privacy.html, terms.html, refund.html)
 
 ---
 
