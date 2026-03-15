@@ -279,6 +279,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 .shop-title{font-family:'Syne',sans-serif;font-size:clamp(44px,6vw,80px);font-weight:800;line-height:1;letter-spacing:-0.02em;color:var(--text);margin:12px 0 16px;}
 .shop-desc{font-size:16px;color:var(--text-dim);max-width:480px;}
 .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.shop-more-coming{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--text-faint);text-align:center;padding:20px 0 0;grid-column:1 / -1;}
 .shop-card{background:var(--navy-mid);display:flex;flex-direction:column;}
 .shop-card--dim{opacity:.55;}
 .shop-card-header{padding:20px 28px 0;}
@@ -902,10 +903,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   <ul class="nav-links">
     <li><a href="#plugins" id="navPlugins">Plugin</a></li>
     <li><a href="#pageAbout" id="navAbout">About</a></li>
-    <li><a href="#pageHardware" id="navHardware">Hardware</a></li>
+    <li><a href="#pageHardware" id="navHardware">Vision</a></li>
     <li><a href="#pageImpressions" id="navImpressions">Impressions</a></li>
     <li><a href="#pageShop">Shop</a></li>
-    <li><a href="#pageApp">App</a></li>
+    <li><a href="#pageApp">Roadmap</a></li>
   </ul>
   <button class="nav-cta" id="exploreFreeBtn">Explore Free</button>
   <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Open menu">[ MENU ]</button>
@@ -1122,7 +1123,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 </section>
 </div>
 
-<div class="section-divider"><span class="section-divider-num">03</span><span class="section-divider-name">Hardware</span><div class="section-divider-line"></div></div>
+<div class="section-divider"><span class="section-divider-num">03</span><span class="section-divider-name">Vision</span><div class="section-divider-line"></div></div>
 <!-- ==================== HARDWARE PAGE ==================== -->
 <div class="page" id="pageHardware">
 <section class="hw-section" id="hardware">
@@ -1515,7 +1516,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
       <div class="shop-header">
         <div class="section-label">Shop</div>
         <h2 class="shop-title">Get DIMEA.</h2>
-        <p class="shop-desc">Plugin licenses, hardware pre-orders, and future drops — in one place.</p>
+        <p class="shop-desc">The plugin is available now. Hardware and app are in development — more products coming in 2026.</p>
       </div>
 
       <!-- TESTIMONIALS -->
@@ -1582,67 +1583,21 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           </div>
         </div>
 
-        <!-- Hardware — pre-order -->
-        <div class="shop-card shop-card--preorder">
-          <div class="shop-card-header">
-            <span class="shop-badge shop-badge--soon">Limited first batch · Est. Q1 2028</span>
-          </div>
-          <div class="shop-card-body">
-            <div class="shop-card-category">Hardware</div>
-            <div class="shop-card-name">DIMEOLA MK1</div>
-            <div class="shop-card-tagline">Chord Synthesizer · CNC Aluminium · Daisy Seed</div>
-            <div class="shop-card-desc">The physical instrument. Dual joysticks, illuminated scale ring, pressure pads, back triggers, internal synth engine. No computer needed.</div>
-            <ul class="shop-card-features">
-              <li>12-note touch scale ring · illuminated</li>
-              <li>2 × XY joystick (pitch + filter)</li>
-              <li>4 × pressure-sensitive voice pads</li>
-              <li>Per-layer looper · MIDI in/out · audio out</li>
-              <li>CNC anodised aluminium body</li>
-            </ul>
-          </div>
-          <div class="shop-card-footer">
-            <div class="shop-price">~CHF 499 <span class="shop-price-note">early-backer price</span></div>
-            <div class="trust-badge" style="margin-bottom:8px;">⚡ Limited first batch · crowdfunding 2026</div>
-            <button class="shop-btn shop-btn--waitlist" onclick="document.getElementById('pageHardware').querySelector('.hw-email-input').focus(); document.getElementById('pageHardware').scrollIntoView({behavior:'smooth'});">Join Waitlist →</button>
-          </div>
-        </div>
-
-        <!-- Bundle — coming -->
-        <div class="shop-card shop-card--dim">
-          <div class="shop-card-header">
-            <span class="shop-badge shop-badge--tbd">In Planning</span>
-          </div>
-          <div class="shop-card-body">
-            <div class="shop-card-category">Bundle</div>
-            <div class="shop-card-name">DIMEA Full Kit</div>
-            <div class="shop-card-tagline">Plugin + Hardware + App</div>
-            <div class="shop-card-desc">Everything in one package — Arcade Chord Control plugin, DIMEOLA MK1 hardware, and the companion app. Discounted for early supporters.</div>
-            <ul class="shop-card-features">
-              <li>Arcade Chord Control plugin licence</li>
-              <li>DIMEOLA MK1 hardware unit</li>
-              <li>DIMEA App (iOS + Android)</li>
-              <li>Priority shipping + beta access</li>
-            </ul>
-          </div>
-          <div class="shop-card-footer">
-            <div class="shop-price">TBD <span class="shop-price-note">bundle discount</span></div>
-            <button class="shop-btn shop-btn--dim" disabled>Coming 2026</button>
-          </div>
-        </div>
+        <p class="shop-more-coming">More products in development — hardware and app coming in 2026.</p>
 
       </div>
     </div>
   </section>
 </div>
 
-<div class="section-divider"><span class="section-divider-num">06</span><span class="section-divider-name">App</span><div class="section-divider-line"></div></div>
+<div class="section-divider"><span class="section-divider-num">06</span><span class="section-divider-name">Roadmap</span><div class="section-divider-line"></div></div>
 <!-- ==================== APP PAGE ==================== -->
 <div class="page" id="pageApp">
   <section class="app-section">
     <div class="app-inner">
 
       <div class="app-left">
-        <div class="section-label">App</div>
+        <div class="section-label">Roadmap</div>
         <h2 class="app-title">DIMEA App.<br><span>Your phone becomes<br>the instrument.</span></h2>
         <div style="display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,180,60,1);border:1px solid rgba(255,180,60,0.35);padding:6px 14px;background:rgba(255,180,60,0.05);margin-bottom:20px;">
           <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,180,60,1);animation:hw-blink 1.5s ease-in-out infinite;display:inline-block;"></span>
@@ -1739,10 +1694,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
           <li><a href="#pageHome">Plugin</a></li>
-          <li><a href="#pageHardware">Hardware</a></li>
+          <li><a href="#pageHardware">Vision</a></li>
           <li><a href="#pageImpressions">Impressions</a></li>
           <li><a href="#pageShop">Shop</a></li>
-          <li><a href="#pageApp">App</a></li>
+          <li><a href="#pageApp">Roadmap</a></li>
         </ul>
       </div>
 
@@ -4001,10 +3956,10 @@ buildChromaStrip();
     <li><a href="#pageHome">Home</a></li>
     <li><a href="#plugins">Plugin</a></li>
     <li><a href="#pageAbout">About</a></li>
-    <li><a href="#pageHardware">Hardware</a></li>
+    <li><a href="#pageHardware">Vision</a></li>
     <li><a href="#pageImpressions">Impressions</a></li>
     <li><a href="#pageShop">Shop</a></li>
-    <li><a href="#pageApp">App</a></li>
+    <li><a href="#pageApp">Roadmap</a></li>
   </ul>
   <div class="nav-overlay-cta">
     <button class="nav-cta" id="exploreFreeOverlay">Explore Free</button>
