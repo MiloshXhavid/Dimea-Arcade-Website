@@ -143,22 +143,21 @@ Plans:
 
 ---
 
-## Phase 10: Stripe Hardware Deposit / Preorder
+## Phase 10: Site Reframe — Plugin First
 
-**Goal:** Accept deposits for DIMEOLA hardware. Validates demand + generates early revenue.
+**Goal:** Reframe the site so the plugin is the primary product. Hardware and App become vision/roadmap sections — no pricing, no CTAs, no deposit.
 
 **Delivers:**
-- "Preorder Hardware" button → Stripe Payment Link
-- Clear messaging: "deposit secures your unit — remainder due on ship"
-- Refund policy link visible before checkout
+- Hero: plugin-only CTAs (remove hardware preorder button)
+- Hardware section: remove pricing, reframe as "In Development" vision
+- App section: same — vision framing, no purchase CTA
+- Shop: plugin card only + "More coming" note (remove hardware + bundle cards)
+- Nav: "Hardware" and "App" links renamed to reflect vision (e.g. "Vision", "Roadmap")
 
 **Status:** TODO
 
-**External prerequisites:**
-- Stripe Payment Link for hardware deposit (CHF 99–149) created
-
 Plans:
-- [ ] 10-01: Wire Stripe deposit Payment Link into hardware section
+- [ ] 10-01: Site reframe — hero, shop, nav, hardware + app section copy
 
 ---
 
