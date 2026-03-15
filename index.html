@@ -906,7 +906,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
     <li><a href="#pageHardware" id="navHardware">Vision</a></li>
     <li><a href="#pageImpressions" id="navImpressions">Impressions</a></li>
     <li><a href="#pageShop">Shop</a></li>
-    <li><a href="#pageApp">Vision</a></li>
   </ul>
   <button class="nav-cta" id="exploreFreeBtn">Explore Free</button>
   <button class="nav-menu-toggle" id="navMenuToggle" aria-label="Open menu">[ MENU ]</button>
@@ -1401,6 +1400,83 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
   </div><!-- /.hw-inner -->
 </section>
+
+  <section class="app-section">
+    <div class="app-inner">
+
+      <div class="app-left">
+        <div class="section-label">App</div>
+        <h2 class="app-title">DIMEA App.<br><span>Your phone becomes<br>the instrument.</span></h2>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,180,60,1);border:1px solid rgba(255,180,60,0.35);padding:6px 14px;background:rgba(255,180,60,0.05);margin-bottom:20px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,180,60,1);animation:hw-blink 1.5s ease-in-out infinite;display:inline-block;"></span>
+          IN DEVELOPMENT — iOS · Android · macOS
+        </div>
+        <p class="app-desc">No hardware yet? No problem. The DIMEA app turns any iOS or Android touchscreen into a fully functional DIMEOLA controller — with the same scale engine, XY pad, and looper from the plugin.</p>
+        <p class="app-desc">When you do get the hardware, the app becomes its brain — a visual editor for scales, presets, firmware updates, and routing.</p>
+
+        <div class="app-modes">
+          <div class="app-mode">
+            <div class="app-mode-label">Mode 1</div>
+            <div class="app-mode-title">Standalone Instrument</div>
+            <div class="app-mode-desc">XY pad on screen. Built-in synth engine. Plug in headphones, play. No computer, no DAW, no setup.</div>
+          </div>
+          <div class="app-mode">
+            <div class="app-mode-label">Mode 2</div>
+            <div class="app-mode-title">MIDI Controller</div>
+            <div class="app-mode-desc">Routes 4-voice MIDI to any external synth, modular, or DAW via USB-C or BLE MIDI. Same chord logic as the plugin.</div>
+          </div>
+          <div class="app-mode">
+            <div class="app-mode-label">Mode 3</div>
+            <div class="app-mode-title">DIMEOLA Companion</div>
+            <div class="app-mode-desc">Visual scale editor, preset manager, trigger mode config, and firmware updater for the MK1 hardware. The screen the hardware doesn't have.</div>
+          </div>
+        </div>
+
+        <div class="app-platforms">
+          <div class="app-platform">
+            <div class="app-platform-icon">📱</div>
+            <div class="app-platform-name">iOS</div>
+            <div class="app-platform-status">In Development</div>
+          </div>
+          <div class="app-platform">
+            <div class="app-platform-icon">🤖</div>
+            <div class="app-platform-name">Android</div>
+            <div class="app-platform-status">In Development</div>
+          </div>
+          <div class="app-platform">
+            <div class="app-platform-icon">💻</div>
+            <div class="app-platform-name">macOS</div>
+            <div class="app-platform-status">Planned</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App mockup -->
+      <div class="app-right">
+        <div class="app-mockup-wrap">
+          <div class="app-mockup-label">DIMEA App — UI Concept</div>
+          <div style="padding:20px;">
+            <div class="app-phone-frame">
+              <div class="app-phone-shell">
+                <div class="app-phone-notch"></div>
+                <div class="app-phone-screen">
+                  <img src="assets/app-screenshot.png" alt="DIMEA App UI" style="width:100%;display:block;">
+                  <div class="app-phone-screen-overlay"></div>
+                </div>
+                <div class="app-phone-bar"></div>
+              </div>
+            </div>
+            <div class="app-photo-caption">DIMEA App — iOS · Android · macOS</div>
+            <div class="app-photo-badge">
+              <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,180,60,1);display:inline-block;"></span>
+              IN DEVELOPMENT
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </div>
 
 <div class="section-divider"><span class="section-divider-num">04</span><span class="section-divider-name">Impressions</span><div class="section-divider-line"></div></div>
@@ -1590,88 +1666,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   </section>
 </div>
 
-<div class="section-divider"><span class="section-divider-num">06</span><span class="section-divider-name">Vision</span><div class="section-divider-line"></div></div>
-<!-- ==================== APP PAGE ==================== -->
-<div class="page" id="pageApp">
-  <section class="app-section">
-    <div class="app-inner">
-
-      <div class="app-left">
-        <div class="section-label">Vision</div>
-        <h2 class="app-title">DIMEA App.<br><span>Your phone becomes<br>the instrument.</span></h2>
-        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,180,60,1);border:1px solid rgba(255,180,60,0.35);padding:6px 14px;background:rgba(255,180,60,0.05);margin-bottom:20px;">
-          <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,180,60,1);animation:hw-blink 1.5s ease-in-out infinite;display:inline-block;"></span>
-          IN DEVELOPMENT — iOS · Android · macOS
-        </div>
-        <p class="app-desc">No hardware yet? No problem. The DIMEA app turns any iOS or Android touchscreen into a fully functional DIMEOLA controller — with the same scale engine, XY pad, and looper from the plugin.</p>
-        <p class="app-desc">When you do get the hardware, the app becomes its brain — a visual editor for scales, presets, firmware updates, and routing.</p>
-
-        <div class="app-modes">
-          <div class="app-mode">
-            <div class="app-mode-label">Mode 1</div>
-            <div class="app-mode-title">Standalone Instrument</div>
-            <div class="app-mode-desc">XY pad on screen. Built-in synth engine. Plug in headphones, play. No computer, no DAW, no setup.</div>
-          </div>
-          <div class="app-mode">
-            <div class="app-mode-label">Mode 2</div>
-            <div class="app-mode-title">MIDI Controller</div>
-            <div class="app-mode-desc">Routes 4-voice MIDI to any external synth, modular, or DAW via USB-C or BLE MIDI. Same chord logic as the plugin.</div>
-          </div>
-          <div class="app-mode">
-            <div class="app-mode-label">Mode 3</div>
-            <div class="app-mode-title">DIMEOLA Companion</div>
-            <div class="app-mode-desc">Visual scale editor, preset manager, trigger mode config, and firmware updater for the MK1 hardware. The screen the hardware doesn't have.</div>
-          </div>
-        </div>
-
-        <div class="app-platforms">
-          <div class="app-platform">
-            <div class="app-platform-icon">📱</div>
-            <div class="app-platform-name">iOS</div>
-            <div class="app-platform-status">In Development</div>
-          </div>
-          <div class="app-platform">
-            <div class="app-platform-icon">🤖</div>
-            <div class="app-platform-name">Android</div>
-            <div class="app-platform-status">In Development</div>
-          </div>
-          <div class="app-platform">
-            <div class="app-platform-icon">💻</div>
-            <div class="app-platform-name">macOS</div>
-            <div class="app-platform-status">Planned</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- App mockup -->
-      <div class="app-right">
-        <div class="app-mockup-wrap">
-          <div class="app-mockup-label">DIMEA App — UI Concept</div>
-          <div style="padding:20px;">
-            <div class="app-phone-frame">
-              <div class="app-phone-shell">
-                <div class="app-phone-notch"></div>
-                <div class="app-phone-screen">
-                  <img src="assets/app-screenshot.png" alt="DIMEA App UI" style="width:100%;display:block;">
-                  <div class="app-phone-screen-overlay"></div>
-                </div>
-                <div class="app-phone-bar"></div>
-              </div>
-            </div>
-            <div class="app-photo-caption">DIMEA App — iOS · Android · macOS</div>
-            <div class="app-photo-badge">
-              <span style="width:6px;height:6px;border-radius:50%;background:rgba(255,180,60,1);display:inline-block;"></span>
-              IN DEVELOPMENT
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</div>
-
-
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="site-footer">
@@ -1697,7 +1691,6 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
           <li><a href="#pageHardware">Vision</a></li>
           <li><a href="#pageImpressions">Impressions</a></li>
           <li><a href="#pageShop">Shop</a></li>
-          <li><a href="#pageApp">Vision</a></li>
         </ul>
       </div>
 
@@ -3959,7 +3952,6 @@ buildChromaStrip();
     <li><a href="#pageHardware">Vision</a></li>
     <li><a href="#pageImpressions">Impressions</a></li>
     <li><a href="#pageShop">Shop</a></li>
-    <li><a href="#pageApp">Vision</a></li>
   </ul>
   <div class="nav-overlay-cta">
     <button class="nav-cta" id="exploreFreeOverlay">Explore Free</button>
