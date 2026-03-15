@@ -3,7 +3,7 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-14T11:08:31.374Z"
+last_updated: "2026-03-14T12:00:00.000Z"
 progress:
   total_phases: 7
   completed_phases: 5
@@ -13,7 +13,7 @@ progress:
 
 ## Position
 
-Phase 05 plan 01 complete (locally). Local branch renamed to main, .gitignore and vercel.json committed. Push blocked — no GitHub remote. User must add remote and push to unblock phase 05 plan 02. Phase 04 complete — full SEO, favicons, and OG image done.
+Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json committed and pushed to GitHub (MiloshXhavid/Dimea-Arcade-Website). Vercel project connected — site live at dimea-arcade-website-cfy8wg6sg-miloshxhavids-projects.vercel.app (HTTP 200, clean URLs working). Phase 05 plan 02 (custom domain dimea.io) deferred — waiting for plugin Mac signing (~2026-03-21) and commerce setup before purchasing domain.
 
 ## Decisions
 
@@ -42,7 +42,8 @@ Phase 05 plan 01 complete (locally). Local branch renamed to main, .gitignore an
 - [Phase 04-02]: Icon SVG redesigned with smooth arc, oval dots, and DIMEA text label for legibility at favicon sizes
 - [Phase 04-02]: apple-touch-icon.png uses filled dark background — transparent backgrounds render black on iOS home screen
 - [Phase 05-domain-vercel-deploy]: vercel.json uses explicit rewrites (not wildcard) for 5 SPA routes — legal pages served as real files
-- [Phase 05-domain-vercel-deploy]: No GitHub remote configured — user must create repo, add remote, push to origin/main before Vercel connect
+- [Phase 05-domain-vercel-deploy]: Vercel project connected to MiloshXhavid/Dimea-Arcade-Website, production branch main, framework Other, output dir .
+- [Phase 05-domain-vercel-deploy]: Custom domain dimea.io deferred — purchase after plugin Mac signing + commerce setup (~2026-03-21)
 
 ## Commits (Phase 01)
 
@@ -83,4 +84,4 @@ Phase 05 plan 01 complete (locally). Local branch renamed to main, .gitignore an
 
 ## Next
 
-Phase 05 plan 01 complete (local). Blocked: no GitHub remote configured. User must create GitHub repo, add remote, and push before Vercel connect. Once pushed, proceed with 05-02 (Vercel project setup + custom domain). Phase 07 (Commerce & Link Wiring) added — requires LemonSqueezy product + Stripe Payment Link + social accounts to be created externally before execution. Domain (dimea.io) not yet purchased — defer until plugin is signed and commerce is set up.
+Phase 10 Plan 01 paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (1a3a19e, d95027d). User must verify the reframed site in browser — then resume to complete plan and create SUMMARY. Once Phase 10-01 is approved: proceed to Phase 10-02 if planned, otherwise Phase 07 (Commerce). Custom domain dimea.io still deferred pending Mac signing (~2026-03-21).
