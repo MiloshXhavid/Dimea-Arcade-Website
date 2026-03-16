@@ -1382,13 +1382,18 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <div class="hw-waitlist-tag">Be first.</div>
         <h3 class="hw-waitlist-title">Join the DIMEOLA Waitlist</h3>
         <p class="hw-waitlist-desc">One email when the campaign goes live — plus an early-backer discount. No spam, ever.</p>
-        <div class="hw-waitlist-form">
-          <input type="email" class="hw-email-input" placeholder="your@email.com" id="hwEmailInput"/>
-          <button class="hw-email-btn" onclick="handleHwWaitlist()">
-            Notify Me
-            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1L13 5L9 9M1 5H13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          </button>
-        </div>
+        <form action="https://gmx.us10.list-manage.com/subscribe/post?u=ffa1cafa22936c5b074e7f303&amp;id=5a54dcd314&amp;f_id=009d92e3f0" method="post" target="_blank" novalidate id="hwWaitlistForm">
+          <div class="hw-waitlist-form">
+            <input type="email" name="EMAIL" class="hw-email-input" placeholder="your@email.com" id="hwEmailInput" required/>
+            <button type="submit" class="hw-email-btn" onclick="handleHwWaitlist()">
+              Notify Me
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M9 1L13 5L9 9M1 5H13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div style="position:absolute;left:-5000px;" aria-hidden="true">
+            <input type="text" name="b_ffa1cafa22936c5b074e7f303_5a54dcd314" tabindex="-1" value="">
+          </div>
+        </form>
         <div class="hw-waitlist-confirm" id="hwConfirm">✓ You're on the list. We'll be in touch.</div>
       </div>
     </div>
@@ -1800,6 +1805,7 @@ function handleHwWaitlist(){
   document.querySelector('.hw-email-btn').disabled=true;
   document.querySelector('.hw-email-btn').textContent='Done ✓';
   confirm.classList.add('visible');
+  // form submits to Mailchimp via default form action
 }
 
 function filterImp(tag, btn) {
