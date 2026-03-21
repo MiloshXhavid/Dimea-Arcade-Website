@@ -46,6 +46,7 @@
 }
 html { scroll-behavior: smooth; }
 body { background:var(--navy); color:var(--text); font-family:'Space Grotesk',sans-serif; overflow-x:hidden; cursor:none; }
+html { overflow-x:hidden; }
 body::before { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); opacity:0.025; pointer-events:none; z-index:200; }
 .top-border { position:fixed; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--teal) 30%,var(--magenta) 70%,transparent); z-index:600; }
 
@@ -851,6 +852,11 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   .shop-testimonials { grid-template-columns:1fr; }
   .proof-sep { display:none; }
   .social-proof-bar { flex-direction:column; align-items:flex-start; padding:14px 20px; gap:12px; }
+  .voicing-label { white-space:normal; text-align:center; width:100%; font-size:7px; bottom:-44px; }
+  .hero-right { overflow:hidden; }
+}
+@media(max-width:380px) {
+  .xy-world { width:260px; height:260px; }
 }
 
 </style>
@@ -2270,9 +2276,10 @@ function activate(e){
   const{px:fpx,py:fpy}=getRelPos(e,xyPad);
   const fbright=updateDot(fpx,fpy);
   // Resume AudioContext first (browser autoplay policy), then play
+  // iOS Safari blocks audio started in async .then() — must call synchronously within gesture
   const doPlay=()=>triggerChord(fpx,fpy,fbright,true);
-  if(audioCtx && audioCtx.state==='suspended') audioCtx.resume().then(doPlay);
-  else doPlay();
+  if(audioCtx && audioCtx.state==='suspended') audioCtx.resume();
+  doPlay();
 }
 
 function handleMove(e){
@@ -2327,6 +2334,7 @@ xyPad.addEventListener('touchend',deactivate);
 // Resume suspended AudioContext on any user gesture anywhere on the page
 document.addEventListener('click', () => { if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {capture:true});
 document.addEventListener('keydown', () => { if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {capture:true});
+document.addEventListener('touchstart', () => { if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {capture:true,passive:true});
 
 // Parallax
 document.addEventListener('mousemove',e=>{
