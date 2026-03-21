@@ -592,6 +592,21 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
   .xy-pad{cursor:crosshair;}
 }
 
+/* ── MOBILE AUDIO UNLOCK OVERLAY ── */
+.audio-unlock-overlay{
+  display:none;
+  position:absolute;inset:0;border-radius:50%;
+  background:rgba(5,8,16,0.82);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  z-index:50;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;cursor:pointer;border:none;width:100%;
+  animation:fadeIn .4s ease forwards;
+}
+@media(pointer:coarse){.audio-unlock-overlay{display:flex;}}
+.audio-unlock-overlay.hidden{display:none!important;}
+.audio-unlock-icon{font-size:28px;animation:pulse 2s ease-in-out infinite;}
+.audio-unlock-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);text-align:center;}
+
 @media(max-width:900px){
   /* Nav */
   nav{padding:18px 24px;}
@@ -952,6 +967,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 
         <div class="xy-pad" id="xyPad">
           <div class="brightness-overlay" id="brightOverlay"></div>
+          <button class="audio-unlock-overlay" id="audioUnlock" aria-label="Tap to enable audio">
+            <span class="audio-unlock-icon">🔊</span>
+            <span class="audio-unlock-label">Tap to enable sound</span>
+          </button>
 
           <!-- Chord zone labels (angle-based, C major diatonic) -->
           <div class="zone-label" id="zl0" style="top:18%;left:50%">I · C</div>
@@ -2263,10 +2282,8 @@ function endSustain(){
   sustainRing.classList.remove('visible');
 }
 
-async function activate(e){
+function activate(e){
   initAudio();
-  // iOS Safari: must await resume() before scheduling audio — async .then() is blocked by iOS
-  if(audioCtx.state==='suspended') await audioCtx.resume();
   pickRandomWaveform();
   const wvEl=document.getElementById('fcWaveform');
   if(wvEl) wvEl.textContent=currentWaveform.charAt(0).toUpperCase()+currentWaveform.slice(1);
@@ -2343,6 +2360,24 @@ xyPad.addEventListener('touchend',deactivate);
 document.addEventListener('click', () => { if(audioCtx) unlockAudioContext(audioCtx); }, {capture:true});
 document.addEventListener('keydown', () => { if(audioCtx) unlockAudioContext(audioCtx); }, {capture:true});
 document.addEventListener('touchstart', () => { if(audioCtx) unlockAudioContext(audioCtx); }, {capture:true,passive:true});
+
+// ── MOBILE AUDIO UNLOCK BUTTON ──────────────────────────────────────
+const audioUnlockBtn = document.getElementById('audioUnlock');
+if(audioUnlockBtn){
+  audioUnlockBtn.addEventListener('touchstart', function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    initAudio();
+    // Play silent buffer synchronously to unlock iOS audio
+    const buf=audioCtx.createBuffer(1,1,22050);
+    const src=audioCtx.createBufferSource();
+    src.buffer=buf;
+    src.connect(audioCtx.destination);
+    src.start(0);
+    audioCtx.resume();
+    audioUnlockBtn.classList.add('hidden');
+  },{passive:false});
+}
 
 // Parallax
 document.addEventListener('mousemove',e=>{
