@@ -1836,6 +1836,17 @@ document.querySelectorAll('a,button').forEach(el=>{
 let audioCtx=null, masterGain=null, filterNode=null;
 let activeOscs=[];
 
+function unlockAudioContext(ctx){
+  if(ctx.state!=='suspended') return;
+  // iOS requires a silent buffer to fully unlock the audio system
+  const buf=ctx.createBuffer(1,1,22050);
+  const src=ctx.createBufferSource();
+  src.buffer=buf;
+  src.connect(ctx.destination);
+  src.start(0);
+  ctx.resume();
+}
+
 function initAudio(){
   if(audioCtx) return;
   audioCtx=new(window.AudioContext||window.webkitAudioContext)();
@@ -2275,11 +2286,9 @@ function activate(e){
   // Force-play on first click even if position matches lastPx/lastPy default
   const{px:fpx,py:fpy}=getRelPos(e,xyPad);
   const fbright=updateDot(fpx,fpy);
-  // Resume AudioContext first (browser autoplay policy), then play
-  // iOS Safari blocks audio started in async .then() — must call synchronously within gesture
-  const doPlay=()=>triggerChord(fpx,fpy,fbright,true);
-  if(audioCtx && audioCtx.state==='suspended') audioCtx.resume();
-  doPlay();
+  // Unlock AudioContext within the user gesture (iOS requires silent buffer trick)
+  unlockAudioContext(audioCtx);
+  triggerChord(fpx,fpy,fbright,true);
 }
 
 function handleMove(e){
@@ -2332,9 +2341,9 @@ xyPad.addEventListener('touchmove',e=>{e.preventDefault();handleMove(e);},{passi
 xyPad.addEventListener('touchend',deactivate);
 
 // Resume suspended AudioContext on any user gesture anywhere on the page
-document.addEventListener('click', () => { if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {capture:true});
-document.addEventListener('keydown', () => { if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {capture:true});
-document.addEventListener('touchstart', () => { if(audioCtx && audioCtx.state==='suspended') audioCtx.resume(); }, {capture:true,passive:true});
+document.addEventListener('click', () => { if(audioCtx) unlockAudioContext(audioCtx); }, {capture:true});
+document.addEventListener('keydown', () => { if(audioCtx) unlockAudioContext(audioCtx); }, {capture:true});
+document.addEventListener('touchstart', () => { if(audioCtx) unlockAudioContext(audioCtx); }, {capture:true,passive:true});
 
 // Parallax
 document.addEventListener('mousemove',e=>{
