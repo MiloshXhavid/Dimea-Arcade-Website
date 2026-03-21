@@ -96,7 +96,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
 .eyebrow-pill{display:flex;align-items:center;gap:8px;background:rgba(42,232,196,.08);border:1px solid rgba(42,232,196,.2);padding:5px 12px 5px 8px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
 .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2s ease-in-out infinite;}
 .eyebrow-text{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal);}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(52px,7.5vw,96px);font-weight:800;line-height:.95;letter-spacing:-.02em;margin-bottom:8px;opacity:0;animation:fadeUp .9s .7s forwards;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(38px,10vw,96px);font-weight:800;line-height:.95;letter-spacing:-.02em;margin-bottom:8px;opacity:0;animation:fadeUp .9s .7s forwards;}
 .title-line-1{color:var(--text);display:block;} .title-line-2{display:block;color:transparent;-webkit-text-stroke:1.5px var(--teal);opacity:.7;} .title-line-3{display:block;color:var(--magenta);}
 .hero-sub{font-size:clamp(15px,1.5vw,18px);font-weight:300;color:var(--text-dim);line-height:1.65;max-width:400px;margin:28px 0 44px;opacity:0;animation:fadeUp .9s .9s forwards;}
 .hero-sub strong{color:var(--text);font-weight:500;}
@@ -2263,8 +2263,10 @@ function endSustain(){
   sustainRing.classList.remove('visible');
 }
 
-function activate(e){
+async function activate(e){
   initAudio();
+  // iOS Safari: must await resume() before scheduling audio — async .then() is blocked by iOS
+  if(audioCtx.state==='suspended') await audioCtx.resume();
   pickRandomWaveform();
   const wvEl=document.getElementById('fcWaveform');
   if(wvEl) wvEl.textContent=currentWaveform.charAt(0).toUpperCase()+currentWaveform.slice(1);
@@ -2283,11 +2285,8 @@ function activate(e){
   setTimeout(()=>ripple.remove(),700);
 
   sustainTimer=setTimeout(startSustain,600);
-  // Force-play on first click even if position matches lastPx/lastPy default
   const{px:fpx,py:fpy}=getRelPos(e,xyPad);
   const fbright=updateDot(fpx,fpy);
-  // Unlock AudioContext within the user gesture (iOS requires silent buffer trick)
-  unlockAudioContext(audioCtx);
   triggerChord(fpx,fpy,fbright,true);
 }
 
