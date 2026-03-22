@@ -46,6 +46,9 @@ Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json co
 - [Phase 05-domain-vercel-deploy]: Custom domain dimea.io deferred — purchase after plugin Mac signing + commerce setup (~2026-03-21)
 - [Phase 09-hardware-waitlist-newsletter]: Mailchimp Groups (not tags) for subscriber differentiation — tags not passable via embedded form POST
 - [Phase 09-hardware-waitlist-newsletter]: Single Final Welcome Email covers both signup paths — Mailchimp free plan removed multi-step automations June 2025
+- [Phase 09-02]: Single opt-in — confirmation text "✓ You're on the list." — no double opt-in email flow
+- [Phase 09-02]: No group params — single Mailchimp list, both forms submit email only via JSONP
+- [Phase 09-02]: Honeypot field b_ffa1cafa22936c5b074e7f303_5a54dcd314 appended to JSONP URL as empty param for bot protection
 
 ## Commits (Phase 01)
 
@@ -86,6 +89,6 @@ Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json co
 
 ## Next
 
-Phase 09 Plan 01 paused at Task 1 (checkpoint:human-action). Task 2 committed (34a1260) — welcome email copy and JS constant stubs recorded in 09-01-SUMMARY.md. Waiting for Dimitri to complete Mailchimp setup and provide: (1) action URL, (2) Hardware Waitlist group field name group[X][Y], (3) Newsletter group field name group[X][Z]. Once those three values are provided, plan 02 can execute immediately.
+Phase 09 Plan 02 paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (228f310, cc36d11). Mailchimp JSONP wired to both forms (single opt-in, no group params, honeypot included). User must smoke-test both forms live (invalid email red border, valid email shows "✓ You're on the list.", privacy links work, zero console errors) — then approve to complete plan.
 
 Phase 10 Plan 01 also paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (1a3a19e, d95027d). User must verify the reframed site in browser — then resume to complete plan and create SUMMARY. Once Phase 10-01 is approved: proceed to Phase 10-02 if planned, otherwise Phase 07 (Commerce). Custom domain dimea.io still deferred pending Mac signing (~2026-03-21).
