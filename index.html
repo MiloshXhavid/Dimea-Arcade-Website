@@ -1419,7 +1419,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
             <input type="text" name="b_ffa1cafa22936c5b074e7f303_5a54dcd314" tabindex="-1" value="">
           </div>
         </form>
-        <div class="hw-waitlist-confirm" id="hwConfirm">✓ You're on the list. We'll be in touch.</div>
+        <div class="hw-waitlist-confirm" id="hwConfirm">✓ You're on the list.</div>
+        <div id="hwError" style="display:none;margin-top:10px;font-family:'DM Mono',monospace;font-size:11px;color:rgba(232,58,110,0.9);"></div>
+        <p style="margin-top:12px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--text-faint);">By subscribing you agree to our <a href="/privacy" style="color:var(--teal);text-decoration:none;">Privacy Policy</a>.</p>
       </div>
     </div>
 
@@ -1750,14 +1752,17 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; align-i
         <form action="https://gmx.us10.list-manage.com/subscribe/post?u=ffa1cafa22936c5b074e7f303&amp;id=5a54dcd314&amp;f_id=009d92e3f0" method="post" target="_blank" novalidate>
           <div class="footer-newsletter">
             <input class="footer-email-input" type="email" name="EMAIL" placeholder="your@email.com" required />
-            <button type="submit" class="footer-email-btn">→</button>
+            <button type="submit" class="footer-email-btn" onclick="handleFooterNewsletter()">→</button>
           </div>
           <!-- Mailchimp bot protection -->
           <div style="position:absolute;left:-5000px;" aria-hidden="true">
             <input type="text" name="b_ffa1cafa22936c5b074e7f303_5a54dcd314" tabindex="-1" value="">
           </div>
         </form>
+        <div id="footerConfirm" style="display:none;margin-top:10px;font-family:'DM Mono',monospace;font-size:10px;color:var(--teal);">✓ You're on the list.</div>
+        <div id="footerError" style="display:none;margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;color:rgba(232,58,110,0.9);"></div>
         <p style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.15em;color:var(--text-faint);margin-top:8px;">No spam. Unsubscribe anytime.</p>
+        <p style="margin-top:6px;font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.10em;color:var(--text-faint);">By subscribing you agree to our <a href="/privacy" style="color:var(--teal);text-decoration:none;">Privacy Policy</a>.</p>
       </div>
 
     </div>
