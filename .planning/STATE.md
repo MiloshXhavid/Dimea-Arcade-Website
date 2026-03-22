@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-14T12:00:00.000Z"
+last_updated: "2026-03-22T00:27:27.841Z"
 progress:
-  total_phases: 7
-  completed_phases: 5
-  total_plans: 8
-  completed_plans: 7
+  total_phases: 21
+  completed_phases: 6
+  total_plans: 12
+  completed_plans: 9
 ---
 
 ## Position
@@ -44,6 +44,8 @@ Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json co
 - [Phase 05-domain-vercel-deploy]: vercel.json uses explicit rewrites (not wildcard) for 5 SPA routes — legal pages served as real files
 - [Phase 05-domain-vercel-deploy]: Vercel project connected to MiloshXhavid/Dimea-Arcade-Website, production branch main, framework Other, output dir .
 - [Phase 05-domain-vercel-deploy]: Custom domain dimea.io deferred — purchase after plugin Mac signing + commerce setup (~2026-03-21)
+- [Phase 09-hardware-waitlist-newsletter]: Mailchimp Groups (not tags) for subscriber differentiation — tags not passable via embedded form POST
+- [Phase 09-hardware-waitlist-newsletter]: Single Final Welcome Email covers both signup paths — Mailchimp free plan removed multi-step automations June 2025
 
 ## Commits (Phase 01)
 
@@ -84,4 +86,6 @@ Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json co
 
 ## Next
 
-Phase 10 Plan 01 paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (1a3a19e, d95027d). User must verify the reframed site in browser — then resume to complete plan and create SUMMARY. Once Phase 10-01 is approved: proceed to Phase 10-02 if planned, otherwise Phase 07 (Commerce). Custom domain dimea.io still deferred pending Mac signing (~2026-03-21).
+Phase 09 Plan 01 paused at Task 1 (checkpoint:human-action). Task 2 committed (34a1260) — welcome email copy and JS constant stubs recorded in 09-01-SUMMARY.md. Waiting for Dimitri to complete Mailchimp setup and provide: (1) action URL, (2) Hardware Waitlist group field name group[X][Y], (3) Newsletter group field name group[X][Z]. Once those three values are provided, plan 02 can execute immediately.
+
+Phase 10 Plan 01 also paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (1a3a19e, d95027d). User must verify the reframed site in browser — then resume to complete plan and create SUMMARY. Once Phase 10-01 is approved: proceed to Phase 10-02 if planned, otherwise Phase 07 (Commerce). Custom domain dimea.io still deferred pending Mac signing (~2026-03-21).
