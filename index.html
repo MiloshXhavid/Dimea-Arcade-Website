@@ -1823,20 +1823,99 @@ function showPage(name) {
   if(el) el.scrollIntoView({behavior:'smooth'});
 }
 
-function handleHwWaitlist(){
-  const input = document.getElementById('hwEmailInput');
-  const confirm = document.getElementById('hwConfirm');
-  if(!input.value || !input.value.includes('@')) {
-    input.style.borderColor='rgba(232,58,110,0.6)';
-    setTimeout(()=>input.style.borderColor='',800);
+// ===================== MAILCHIMP =====================
+var MC_ACTION_URL = 'https://gmx.us10.list-manage.com/subscribe/post?u=ffa1cafa22936c5b074e7f303&id=5a54dcd314&f_id=009d92e3f0';
+
+function submitToMailchimp(email, onSuccess, onError) {
+  var callbackName = 'mcCb_' + Date.now();
+  var url = MC_ACTION_URL.replace('/post?', '/post-json?');
+  url += '&EMAIL=' + encodeURIComponent(email);
+  url += '&b_ffa1cafa22936c5b074e7f303_5a54dcd314=';
+  url += '&c=' + callbackName;
+
+  window[callbackName] = function(data) {
+    delete window[callbackName];
+    if (data.result === 'success') {
+      onSuccess();
+    } else {
+      if (data.msg && data.msg.indexOf('already subscribed') !== -1) {
+        onSuccess();
+      } else {
+        onError(data.msg || 'Something went wrong — try again');
+      }
+    }
+  };
+
+  var script = document.createElement('script');
+  script.src = url;
+  document.head.appendChild(script);
+  script.onload = function() { this.remove(); };
+}
+
+function handleHwWaitlist() {
+  var input = document.getElementById('hwEmailInput');
+  var btn = document.querySelector('.hw-email-btn');
+  var confirmEl = document.getElementById('hwConfirm');
+  var errorEl = document.getElementById('hwError');
+
+  errorEl.style.display = 'none';
+  errorEl.textContent = '';
+
+  if (!input.value || !input.value.includes('@')) {
+    input.style.borderColor = 'rgba(232,58,110,0.6)';
+    setTimeout(function() { input.style.borderColor = ''; }, 800);
     return;
   }
-  input.disabled=true;
-  document.querySelector('.hw-email-btn').disabled=true;
-  document.querySelector('.hw-email-btn').textContent='Done ✓';
-  confirm.classList.add('visible');
-  // form submits to Mailchimp via default form action
+
+  input.disabled = true;
+  btn.disabled = true;
+
+  submitToMailchimp(input.value,
+    function() {
+      btn.textContent = 'Done ✓';
+      confirmEl.classList.add('visible');
+    },
+    function(msg) {
+      input.disabled = false;
+      btn.disabled = false;
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
+  );
 }
+
+function handleFooterNewsletter() {
+  var input = document.querySelector('.footer-email-input');
+  var btn = document.querySelector('.footer-email-btn');
+  var confirmEl = document.getElementById('footerConfirm');
+  var errorEl = document.getElementById('footerError');
+
+  errorEl.style.display = 'none';
+  errorEl.textContent = '';
+
+  if (!input.value || !input.value.includes('@')) {
+    input.style.borderColor = 'rgba(232,58,110,0.6)';
+    setTimeout(function() { input.style.borderColor = ''; }, 800);
+    return;
+  }
+
+  input.disabled = true;
+  btn.disabled = true;
+
+  submitToMailchimp(input.value,
+    function() {
+      btn.textContent = '✓';
+      confirmEl.style.display = 'block';
+    },
+    function(msg) {
+      input.disabled = false;
+      btn.disabled = false;
+      errorEl.textContent = msg;
+      errorEl.style.display = 'block';
+    }
+  );
+}
+// ===================== END MAILCHIMP =====================
 
 function filterImp(tag, btn) {
   document.querySelectorAll('.imp-tab').forEach(t => t.classList.remove('active'));
