@@ -129,9 +129,9 @@ Thanks for being early.
 Plan 02 will wire the actual forms. These constants are the only Mailchimp-specific values needed. Replace the TODO placeholders with the real values Dimitri provides.
 
 ```javascript
-var MC_ACTION_URL = '[ACTION_URL_FROM_DIMITRI]'; // TODO: replace — e.g. https://dimea.us1.list-manage.com/subscribe/post?u=abc&id=def
-var HW_GROUP_PARAM = '&group[X][Y]=1'; // TODO: replace X and Y — from Mailchimp form HTML, Hardware Waitlist checkbox input name attribute
-var NL_GROUP_PARAM = '&group[X][Z]=1'; // TODO: replace X and Z — from Mailchimp form HTML, Newsletter checkbox input name attribute
+// Single list, single opt-in — no group params needed
+var MC_ACTION_URL = 'https://gmx.us10.list-manage.com/subscribe/post?u=ffa1cafa22936c5b074e7f303&id=5a54dcd314&f_id=009d92e3f0';
+// No HW_GROUP_PARAM / NL_GROUP_PARAM — user chose single list, all subscribers go to same audience
 ```
 
 **How to read the Mailchimp form HTML:**

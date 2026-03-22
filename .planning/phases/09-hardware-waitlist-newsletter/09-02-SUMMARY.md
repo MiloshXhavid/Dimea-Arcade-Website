@@ -22,7 +22,8 @@ tech-stack:
     - "Already-subscribed emails treated as success to avoid confusing errors"
 
 key-files:
-  created: []
+  created:
+    - ".planning/phases/09-hardware-waitlist-newsletter/09-02-SUMMARY.md"
   modified:
     - "index.html — hardware waitlist and footer newsletter forms wired to Mailchimp JSONP"
 
@@ -33,21 +34,27 @@ key-decisions:
   - "submitToMailchimp takes (email, onSuccess, onError) — no groupParam"
   - "From email is contact@dimea.io"
 
+patterns-established:
+  - "JSONP via dynamic script tag injection — both forms share submitToMailchimp() helper"
+  - "Inline style one-off elements for error/confirm divs — consistent with flat HTML project pattern"
+
+requirements-completed: [09-01, 09-02, 09-03, 09-04, 09-05, 09-06]
+
 # Metrics
-duration: 2min
+duration: ~30min
 completed: 2026-03-22
 ---
 
 # Phase 09 Plan 02: Hardware Waitlist + Newsletter — JSONP Integration Summary
 
-**Mailchimp JSONP wired to both email forms with single opt-in, inline confirm/error UI, and privacy compliance notes**
+**Mailchimp JSONP wired to both email forms with single opt-in, inline confirm/error UI, and privacy compliance notes — live-tested and approved**
 
 ## Performance
 
-- **Duration:** ~2 min
+- **Duration:** ~30 min
 - **Started:** 2026-03-22T00:56:59Z
-- **Completed:** 2026-03-22T00:59:12Z
-- **Tasks:** 2/3 auto complete (Task 3 is checkpoint:human-verify — awaiting approval)
+- **Completed:** 2026-03-22 (human verification approved)
+- **Tasks:** 3/3 complete (2 auto + 1 human-verify, approved)
 - **Files modified:** 1 (index.html)
 
 ## Accomplishments
@@ -58,17 +65,27 @@ completed: 2026-03-22
 - Error elements added to DOM (hidden by default) for both forms
 - Honeypot bot-protection field included in JSONP URL
 - Already-subscribed emails treated as success (no confusing error for returning subscribers)
+- Live smoke test passed: valid email submissions, invalid email red-border errors, privacy links, zero console errors — all confirmed by user
 
 ## Task Commits
 
 1. **Task 1: HTML edits** — `228f310` — error elements, privacy notes, footer button wired, confirmation text updated
 2. **Task 2: JS implementation** — `cc36d11` — submitToMailchimp JSONP helper, handleHwWaitlist() replaced, handleFooterNewsletter() added
+3. **Task 3: Human smoke test** — approved (no code commit — verification only)
 
 ## Files Created/Modified
 
 - `index.html` — hardware waitlist JSONP + footer newsletter JSONP + privacy notes + error elements
 
 ---
+
+## Decisions Made
+
+- Single opt-in confirmation text "✓ You're on the list." — Dimitri chose single opt-in flow during Mailchimp setup; plan originally specified double opt-in copy but was adapted to match actual configuration
+- No group params — single Mailchimp audience, both forms submit email only; no subscriber differentiation by form source
+- Honeypot field appended to JSONP URL — standard Mailchimp bot-filtering field extracted from embedded form HTML
+- submitToMailchimp() shared helper — both handlers call this with email + callbacks; no duplication
+- From email contact@dimea.io (overrides 09-01 which said contact@dimea.audio)
 
 ## Deviations from Plan
 
@@ -93,14 +110,33 @@ completed: 2026-03-22
 - **Plan/09-01 said:** contact@dimea.audio
 - **Applied:** contact@dimea.io (per objective override)
 
-## Checkpoint Status
+---
 
-Task 3 (checkpoint:human-verify) is pending. Awaiting live smoke test of both forms.
+**Total deviations:** 4 objective overrides
+**Impact on plan:** All adaptations reflect Dimitri's actual Mailchimp account configuration. No scope creep. Final result is correct and verified live.
+
+## Issues Encountered
+None — JSONP integration worked on first attempt. Both forms passed live smoke test.
+
+## User Setup Required
+None — Mailchimp account already configured by Dimitri in phase 09-01.
+
+## Next Phase Readiness
+- Phase 09 fully complete — both email capture forms live and verified
+- Phase 10 (site reframe, plugin-first) paused at Task 3 checkpoint — commits 1a3a19e and d95027d ready for user approval
+- Phase 07 (Commerce / LemonSqueezy) available once Phase 10 verification completes
+- Custom domain dimea.io still deferred pending Mac signing
 
 ## Self-Check: PASSED
 
 - `index.html` modified — confirmed via git log (228f310, cc36d11)
+- Task commits exist: 228f310 (HTML edits), cc36d11 (JS implementation)
 - No duplicate handleHwWaitlist() definitions
 - CURSOR block follows END MAILCHIMP block correctly
 - Both privacy links point to /privacy
 - footerConfirm, footerError, hwError all exist in DOM
+- Human verification Task 3: approved by user
+
+---
+*Phase: 09-hardware-waitlist-newsletter*
+*Completed: 2026-03-22*

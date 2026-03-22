@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-last_updated: "2026-03-22T00:27:27.841Z"
+last_updated: "2026-03-22T01:06:01.814Z"
 progress:
   total_phases: 21
-  completed_phases: 6
+  completed_phases: 7
   total_plans: 12
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 ## Position
@@ -49,6 +49,9 @@ Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json co
 - [Phase 09-02]: Single opt-in — confirmation text "✓ You're on the list." — no double opt-in email flow
 - [Phase 09-02]: No group params — single Mailchimp list, both forms submit email only via JSONP
 - [Phase 09-02]: Honeypot field b_ffa1cafa22936c5b074e7f303_5a54dcd314 appended to JSONP URL as empty param for bot protection
+- [Phase 09-02]: Single opt-in — confirmation text '✓ You're on the list.' (not double opt-in)
+- [Phase 09-02]: No group params — single Mailchimp list, both forms submit email only
+- [Phase 09-02]: Honeypot field appended to JSONP URL for bot protection
 
 ## Commits (Phase 01)
 
@@ -89,6 +92,6 @@ Phase 05 plan 01 complete. Branch renamed to main, .gitignore and vercel.json co
 
 ## Next
 
-Phase 09 Plan 02 paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (228f310, cc36d11). Mailchimp JSONP wired to both forms (single opt-in, no group params, honeypot included). User must smoke-test both forms live (invalid email red border, valid email shows "✓ You're on the list.", privacy links work, zero console errors) — then approve to complete plan.
+Phase 09 complete. Both email forms (hardware waitlist + footer newsletter) live and verified — JSONP wired to Mailchimp, single opt-in, inline confirm/error UI, privacy notes. Commits: 228f310 (HTML), cc36d11 (JS). Summary at .planning/phases/09-hardware-waitlist-newsletter/09-02-SUMMARY.md.
 
-Phase 10 Plan 01 also paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (1a3a19e, d95027d). User must verify the reframed site in browser — then resume to complete plan and create SUMMARY. Once Phase 10-01 is approved: proceed to Phase 10-02 if planned, otherwise Phase 07 (Commerce). Custom domain dimea.io still deferred pending Mac signing (~2026-03-21).
+Phase 10 Plan 01 paused at Task 3 (checkpoint:human-verify). Tasks 1 and 2 committed (1a3a19e, d95027d). User must verify the reframed site in browser — then resume to complete plan and create SUMMARY. Once Phase 10-01 is approved: proceed to Phase 10-02 if planned, otherwise Phase 07 (Commerce). Custom domain dimea.io still deferred pending Mac signing (~2026-03-21).
